@@ -1,0 +1,3 @@
+/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir

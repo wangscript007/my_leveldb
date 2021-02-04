@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/leveldb/cxx.h
+
+../include/leveldb/export.h
+
+../include/leveldb/slice.h
+cstddef
+-
+string
+-
+cstring
+-
+leveldb/export.h
+../include/leveldb/leveldb/export.h
+leveldb/cxx.h
+../include/leveldb/leveldb/cxx.h
+
+/Users/kuiper/MyCodes/my_leveldb/main.cpp
+iostream
+-
+leveldb/export.h
+/Users/kuiper/MyCodes/my_leveldb/leveldb/export.h
+leveldb/slice.h
+/Users/kuiper/MyCodes/my_leveldb/leveldb/slice.h
+leveldb/cxx.h
+/Users/kuiper/MyCodes/my_leveldb/leveldb/cxx.h
+
