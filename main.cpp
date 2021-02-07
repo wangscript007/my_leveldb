@@ -5,6 +5,11 @@
 #include "leveldb/cache.h"
 #include "leveldb/db.h"
 #include "port/port_stdcxx.h"
+#include "util/arena.h"
+#include "util/histogram.h"
+
+extern void testArena();
+extern void testHistogram();
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -21,12 +26,21 @@ int main() {
     // leveldb::port::CondVar condVar(&mutex);
     // condVar.Wait();
 
-    std::mutex mtx;
-    std::condition_variable cv;
-
-    std::unique_lock lock(mtx, std::adopt_lock);
-    cv.wait(lock);
-
-    std::cout << "I have change to be run" << std::endl;
+    testArena();
+    testHistogram();
     return 0;
+}
+
+ void testArena()
+{
+    leveldb::Arena a;
+    for(int i = 0; i <100;i++) {
+        a.Allocate(1);
+    }
+    std::cout << "total: " << a.MemoryUsage() << std::endl;
+}
+
+void testHistogram(){
+    leveldb::Histogram histogram;
+
 }

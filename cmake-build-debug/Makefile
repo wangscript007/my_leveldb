@@ -170,6 +170,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+util/arena.o: util/arena.cc.o
+
+.PHONY : util/arena.o
+
+# target to build an object file
+util/arena.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/arena.cc.o
+.PHONY : util/arena.cc.o
+
+util/arena.i: util/arena.cc.i
+
+.PHONY : util/arena.i
+
+# target to preprocess a source file
+util/arena.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/arena.cc.i
+.PHONY : util/arena.cc.i
+
+util/arena.s: util/arena.cc.s
+
+.PHONY : util/arena.s
+
+# target to generate assembly for a file
+util/arena.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/arena.cc.s
+.PHONY : util/arena.cc.s
+
 util/cache.o: util/cache.cc.o
 
 .PHONY : util/cache.o
@@ -197,6 +224,33 @@ util/cache.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/cache.cc.s
 .PHONY : util/cache.cc.s
 
+util/histogram.o: util/histogram.cc.o
+
+.PHONY : util/histogram.o
+
+# target to build an object file
+util/histogram.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/histogram.cc.o
+.PHONY : util/histogram.cc.o
+
+util/histogram.i: util/histogram.cc.i
+
+.PHONY : util/histogram.i
+
+# target to preprocess a source file
+util/histogram.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/histogram.cc.i
+.PHONY : util/histogram.cc.i
+
+util/histogram.s: util/histogram.cc.s
+
+.PHONY : util/histogram.s
+
+# target to generate assembly for a file
+util/histogram.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/histogram.cc.s
+.PHONY : util/histogram.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -209,9 +263,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... util/arena.o"
+	@echo "... util/arena.i"
+	@echo "... util/arena.s"
 	@echo "... util/cache.o"
 	@echo "... util/cache.i"
 	@echo "... util/cache.s"
+	@echo "... util/histogram.o"
+	@echo "... util/histogram.i"
+	@echo "... util/histogram.s"
 .PHONY : help
 
 
