@@ -7,6 +7,7 @@
 #include "port/port_stdcxx.h"
 #include "util/arena.h"
 #include "util/histogram.h"
+#include "leveldb/options.h"
 
 extern void testArena();
 extern void testHistogram();
@@ -26,8 +27,18 @@ int main() {
     // leveldb::port::CondVar condVar(&mutex);
     // condVar.Wait();
 
+    leveldb::Options options;
+
+    leveldb::ReadOptions readOptions;
+    readOptions.verify_checksums = true;
+
+    leveldb::WriteOptions writeOptions;
+    writeOptions.sync = true;
+
     testArena();
     testHistogram();
+
+
     return 0;
 }
 
