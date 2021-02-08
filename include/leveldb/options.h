@@ -11,15 +11,10 @@
 namespace leveldb {
 
     class Cache;
-
     class Comparator;
-
     class Env;
-
     class FilterPolicy;
-
     class Logger;
-
     class Snapshot;
 
     // 压缩类型
@@ -72,6 +67,9 @@ namespace leveldb {
 
     struct LEVELDB_EXPORT WriteOptions {
         WriteOptions() = default;
+
+        // 是否同步写入.
+        // 如果为true,则写入操作将会被刷入操作系统的buffer-cache,然后再返回写入成功的标识.
 
         bool sync = false;
     };

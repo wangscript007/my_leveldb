@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/kuiper/MyCodes/my_leveldb/util/arena.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/util/arena.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/util/cache.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/util/cache.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/util/histogram.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/util/histogram.cc.o"
+  "/Users/kuiper/MyCodes/my_leveldb/util/options.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/util/options.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

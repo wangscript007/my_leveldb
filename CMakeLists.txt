@@ -13,4 +13,5 @@ add_executable(my_leveldb
         main.cpp
         util/cache.cc
         util/arena.cc
-        util/histogram.cc)
+        util/histogram.cc
+        util/options.cc)

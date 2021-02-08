@@ -251,6 +251,33 @@ util/histogram.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/histogram.cc.s
 .PHONY : util/histogram.cc.s
 
+util/options.o: util/options.cc.o
+
+.PHONY : util/options.o
+
+# target to build an object file
+util/options.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/options.cc.o
+.PHONY : util/options.cc.o
+
+util/options.i: util/options.cc.i
+
+.PHONY : util/options.i
+
+# target to preprocess a source file
+util/options.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/options.cc.i
+.PHONY : util/options.cc.i
+
+util/options.s: util/options.cc.s
+
+.PHONY : util/options.s
+
+# target to generate assembly for a file
+util/options.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/options.cc.s
+.PHONY : util/options.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -272,6 +299,9 @@ help:
 	@echo "... util/histogram.o"
 	@echo "... util/histogram.i"
 	@echo "... util/histogram.s"
+	@echo "... util/options.o"
+	@echo "... util/options.i"
+	@echo "... util/options.s"
 .PHONY : help
 
 
