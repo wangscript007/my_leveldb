@@ -8,6 +8,7 @@
 #include "util/arena.h"
 #include "util/histogram.h"
 #include "leveldb/options.h"
+#include "util/coding.h"
 
 extern void testArena();
 extern void testHistogram();

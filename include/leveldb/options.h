@@ -19,21 +19,25 @@ namespace leveldb {
 
     // 压缩类型
     enum CompressionType {
-        kNoCompression = 0x0,           // 不压缩
-        kSnappyCompression = 0x01,      // snappy压缩算法
+        kNoCompression = 0x00,           // 不压缩
+        kSnappyCompression = 0x01,       // snappy压缩算法
     };
 
     struct LEVELDB_EXPORT Options {
         Options();
 
+        // 排序器, 用于定义数据表中数据的顺序
         const Comparator *comparator;
 
+        // 如果数据库不存在时是否创建
         bool create_if_missing = false;
 
+        // 当数据库存在时是否抛出错误
         bool error_if_exists = false;
 
         bool paranoid_checks = false;
 
+        // 跟平台相关的抽象 默认使用 Env::Default()
         Env *env;
 
         Logger *info_log = nullptr;
@@ -42,7 +46,7 @@ namespace leveldb {
 
         int max_open_files = 1000;
 
-        Cache* block_cache = nullptr;
+        Cache *block_cache = nullptr;
 
         size_t block_size = 1024 * 4;
 
@@ -54,7 +58,7 @@ namespace leveldb {
 
         bool reuse_logs = false;
 
-        const FilterPolicy* filter_policy = nullptr;
+        const FilterPolicy *filter_policy = nullptr;
     };
 
     struct LEVELDB_EXPORT ReadOptions {
@@ -62,7 +66,7 @@ namespace leveldb {
 
         bool verify_checksums = false;
         bool fill_cache = true;
-        const Snapshot * snapshot = nullptr;
+        const Snapshot *snapshot = nullptr;
     };
 
     struct LEVELDB_EXPORT WriteOptions {
@@ -70,7 +74,6 @@ namespace leveldb {
 
         // 是否同步写入.
         // 如果为true,则写入操作将会被刷入操作系统的buffer-cache,然后再返回写入成功的标识.
-
         bool sync = false;
     };
 
