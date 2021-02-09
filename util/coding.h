@@ -16,14 +16,20 @@ namespace leveldb {
 
     // Standard put
     void PutFixed32(std::string *dst, uint32_t value);
+
     void PutFixed64(std::string *dst, uint32_t value);
+
     void PutVarint32(std::string *dst, uint32_t value);
+
     void PutVarint64(std::string *dst, uint32_t value);
+
     void PutLengthPrefixedSlice(std::string *dst, const Slice &value);
 
     // Standard get
     bool GetVarint32(Slice *input, uint32_t *value);
+
     bool GetVarint64(Slice *input, uint64_t *value);
+
     bool GetLengthPrefixedSlice(Slice *input, Slice *result);
 
     int VarintLength(uint64_t v);
@@ -57,8 +63,15 @@ namespace leveldb {
         return reinterpret_cast<char *>(ptr);
     }
 
-    static inline char *EncodeVarint64(char *dst, uint32_t value) {
-
+    static inline char *EncodeVarint64(char *dst, uint32_t v) {
+        static constexpr int B = 128;
+        auto *ptr = reinterpret_cast<uint8_t *>(dst);
+        while (v > B) {
+            *(ptr++) = v | B;
+            v >>= 7;
+        }
+        *(ptr++) = static_cast<uint8_t>(v);
+        return reinterpret_cast<char *>(ptr);
     }
 
 
