@@ -14,18 +14,47 @@
 
 namespace leveldb {
 
+    // Standard put
     void PutFixed32(std::string *dst, uint32_t value);
-
     void PutFixed64(std::string *dst, uint32_t value);
-
     void PutVarint32(std::string *dst, uint32_t value);
-
     void PutVarint64(std::string *dst, uint32_t value);
-
     void PutLengthPrefixedSlice(std::string *dst, const Slice &value);
 
-    static inline char *EncodeVarint32(char *dst, uint32_t value) {
+    // Standard get
+    bool GetVarint32(Slice *input, uint32_t *value);
+    bool GetVarint64(Slice *input, uint64_t *value);
+    bool GetLengthPrefixedSlice(Slice *input, Slice *result);
 
+    int VarintLength(uint64_t v);
+
+    // 将一个无符号32位整形编码成varint
+    static inline char *EncodeVarint32(char *dst, uint32_t v) {
+        auto *ptr = reinterpret_cast<uint8_t *>(dst);
+        static const int B = 128; // 1000 0000
+        // 0000 0001
+        if (v < (1U << 7U)) {             // < 0000 0000 1000 0000 = 128
+            *(ptr++) = v;
+        } else if (v < (1U << 14U)) {     // < 0100 0000 0000 0000 = 16384
+            *(ptr++) = v | B;
+            *(ptr++) = v >> 7;
+        } else if (v < (1U << 21U)) {     // < 0001 0000 0000 0000 0000 0000
+            *(ptr++) = v | B;
+            *(ptr++) = (v >> 7) | B;
+            *(ptr++) = v >> 14;
+        } else if (v < (1U << 28U)) {
+            *(ptr++) = v | B;
+            *(ptr++) = (v >> 7) | B;
+            *(ptr++) = (v >> 14) | B;
+            *(ptr++) = v >> 21;
+        } else {
+            *(ptr++) = v | B;
+            *(ptr++) = (v >> 7) | B;
+            *(ptr++) = (v >> 14) | B;
+            *(ptr++) = (v >> 21) | B;
+            *(ptr++) = v >> 28;
+        }
+        return reinterpret_cast<char *>(ptr);
     }
 
     static inline char *EncodeVarint64(char *dst, uint32_t value) {
@@ -72,7 +101,6 @@ namespace leveldb {
                (static_cast<uint64_t>(buffer[6]) << 48U) |
                (static_cast<uint64_t>(buffer[7]) << 56U);
     }
-
 
 
 }
