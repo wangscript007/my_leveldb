@@ -63,7 +63,7 @@ namespace leveldb {
         return reinterpret_cast<char *>(ptr);
     }
 
-    static inline char *EncodeVarint64(char *dst, uint32_t v) {
+    static inline char *EncodeVarint64(char *dst, uint64_t v) {
         static constexpr int B = 128;
         auto *ptr = reinterpret_cast<uint8_t *>(dst);
         while (v > B) {
