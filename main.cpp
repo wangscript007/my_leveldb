@@ -9,9 +9,12 @@
 #include "util/histogram.h"
 #include "leveldb/options.h"
 #include "util/coding.h"
+#include "leveldb/status.h"
+#include "util/mutexlock.h"
 
 extern void testArena();
 extern void testHistogram();
+extern void testState();
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -38,6 +41,7 @@ int main() {
 
     testArena();
     testHistogram();
+    testState();
 
 
     return 0;
@@ -55,4 +59,16 @@ int main() {
 void testHistogram(){
     leveldb::Histogram histogram;
 
+}
+
+void testState()
+{
+    auto s = leveldb::Status::OK();
+    std::cout << s.ToString() << std::endl;
+    std::cout << std::boolalpha;
+    std::cout << s.IsOK() << std::endl;
+    std::cout << s.IsCorruption() << std::endl;
+    std::cout << s.IsInvalidArgument() << std::endl;
+    std::cout << s.IsNotFound() << std::endl;
+    std::cout << s.IsIOError() << std::endl;
 }

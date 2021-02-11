@@ -14,4 +14,6 @@ add_executable(my_leveldb
         util/cache.cc
         util/arena.cc
         util/histogram.cc
-        util/options.cc)
+        util/options.cc
+        util/comparator.cc
+        util/status.cc)

@@ -17,7 +17,6 @@ namespace leveldb {
     class Logger;
     class Snapshot;
 
-    // 压缩类型
     enum CompressionType {
         kNoCompression = 0x00,           // 不压缩
         kSnappyCompression = 0x01,       // snappy压缩算法

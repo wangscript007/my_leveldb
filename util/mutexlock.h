@@ -11,13 +11,11 @@ namespace leveldb {
     class MutexLock {
     public:
         explicit MutexLock(port::Mutex *mtx)
-                : pMutex_(mtx)
-        {
+                : pMutex_(mtx) {
             pMutex_->Lock();
         }
 
-        ~MutexLock()
-        {
+        ~MutexLock() {
             pMutex_->Unlock();
         }
 

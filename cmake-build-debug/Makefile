@@ -224,6 +224,33 @@ util/cache.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/cache.cc.s
 .PHONY : util/cache.cc.s
 
+util/comparator.o: util/comparator.cc.o
+
+.PHONY : util/comparator.o
+
+# target to build an object file
+util/comparator.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/comparator.cc.o
+.PHONY : util/comparator.cc.o
+
+util/comparator.i: util/comparator.cc.i
+
+.PHONY : util/comparator.i
+
+# target to preprocess a source file
+util/comparator.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/comparator.cc.i
+.PHONY : util/comparator.cc.i
+
+util/comparator.s: util/comparator.cc.s
+
+.PHONY : util/comparator.s
+
+# target to generate assembly for a file
+util/comparator.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/comparator.cc.s
+.PHONY : util/comparator.cc.s
+
 util/histogram.o: util/histogram.cc.o
 
 .PHONY : util/histogram.o
@@ -278,6 +305,33 @@ util/options.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/options.cc.s
 .PHONY : util/options.cc.s
 
+util/status.o: util/status.cc.o
+
+.PHONY : util/status.o
+
+# target to build an object file
+util/status.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/status.cc.o
+.PHONY : util/status.cc.o
+
+util/status.i: util/status.cc.i
+
+.PHONY : util/status.i
+
+# target to preprocess a source file
+util/status.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/status.cc.i
+.PHONY : util/status.cc.i
+
+util/status.s: util/status.cc.s
+
+.PHONY : util/status.s
+
+# target to generate assembly for a file
+util/status.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/status.cc.s
+.PHONY : util/status.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -296,12 +350,18 @@ help:
 	@echo "... util/cache.o"
 	@echo "... util/cache.i"
 	@echo "... util/cache.s"
+	@echo "... util/comparator.o"
+	@echo "... util/comparator.i"
+	@echo "... util/comparator.s"
 	@echo "... util/histogram.o"
 	@echo "... util/histogram.i"
 	@echo "... util/histogram.s"
 	@echo "... util/options.o"
 	@echo "... util/options.i"
 	@echo "... util/options.s"
+	@echo "... util/status.o"
+	@echo "... util/status.i"
+	@echo "... util/status.s"
 .PHONY : help
 
 

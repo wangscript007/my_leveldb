@@ -96,6 +96,9 @@
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/cache.cc">
 			<Option target="my_leveldb"/>
 		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/comparator.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/histogram.cc">
 			<Option target="my_leveldb"/>
 		</Unit>
@@ -103,6 +106,9 @@
 			<Option target="my_leveldb"/>
 		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/options.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/status.cc">
 			<Option target="my_leveldb"/>
 		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/CMakeLists.txt">

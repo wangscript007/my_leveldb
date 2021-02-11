@@ -7,6 +7,9 @@
 
 namespace leveldb {
 
-
+    const Comparator *BytewiseComparator()
+    {
+        return nullptr;
+    }
 
 }

@@ -8,31 +8,27 @@
 #include <cstdint>
 #include <cstring>
 #include <string>
+#include <variant>
 
 #include "leveldb/slice.h"
 #include "port/port.h"
 
 namespace leveldb {
 
-    // Standard put
     void PutFixed32(std::string *dst, uint32_t value);
-
     void PutFixed64(std::string *dst, uint32_t value);
-
     void PutVarint32(std::string *dst, uint32_t value);
-
     void PutVarint64(std::string *dst, uint32_t value);
-
     void PutLengthPrefixedSlice(std::string *dst, const Slice &value);
 
-    // Standard get
     bool GetVarint32(Slice *input, uint32_t *value);
-
     bool GetVarint64(Slice *input, uint64_t *value);
-
     bool GetLengthPrefixedSlice(Slice *input, Slice *result);
-
     int VarintLength(uint64_t v);
+
+    const char* GetVarint32PtrFallback(const char* p, const char* limit, uint32_t *value);
+    const char* GetVarint32Ptr(const char* p, const char* limit, uint32_t *value);
+    const char* GetVarint64Ptr(const char* p, const char* limit, uint64_t *value);
 
     // 将一个无符号32位整形编码成varint
     static inline char *EncodeVarint32(char *dst, uint32_t v) {
@@ -73,7 +69,6 @@ namespace leveldb {
         *(ptr++) = static_cast<uint8_t>(v);
         return reinterpret_cast<char *>(ptr);
     }
-
 
     static inline void EncodeFixed32(char *dst, uint32_t value) {
         auto *const buffer = reinterpret_cast<uint8_t *>(dst);
