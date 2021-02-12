@@ -20,7 +20,7 @@ namespace leveldb {
 
         Slice(const char *d, size_t n) : data_(d), size_(n) {}
 
-        explicit Slice(const std::string &s) : data_(s.data()), size_(s.size()) {}
+        Slice(const std::string &s) : data_(s.data()), size_(s.size()) {}
 
         Slice(const char *s) : data_(s), size_(strlen(s)) {}
 

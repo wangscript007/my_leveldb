@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_leveldb.dir/util/cache.cc.o"
   "CMakeFiles/my_leveldb.dir/util/comparator.cc.o"
   "CMakeFiles/my_leveldb.dir/util/histogram.cc.o"
+  "CMakeFiles/my_leveldb.dir/util/logging.cc.o"
   "CMakeFiles/my_leveldb.dir/util/options.cc.o"
   "CMakeFiles/my_leveldb.dir/util/status.cc.o"
   "my_leveldb"

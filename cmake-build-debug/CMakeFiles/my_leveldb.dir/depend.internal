@@ -16,6 +16,8 @@ CMakeFiles/my_leveldb.dir/main.cpp.o
  /Users/kuiper/MyCodes/my_leveldb/util/arena.h
  /Users/kuiper/MyCodes/my_leveldb/util/coding.h
  /Users/kuiper/MyCodes/my_leveldb/util/histogram.h
+ /Users/kuiper/MyCodes/my_leveldb/util/logging.h
+ /Users/kuiper/MyCodes/my_leveldb/util/mutexlock.h
 CMakeFiles/my_leveldb.dir/util/arena.cc.o
  ../util/arena.h
  /Users/kuiper/MyCodes/my_leveldb/util/arena.cc
@@ -33,6 +35,12 @@ CMakeFiles/my_leveldb.dir/util/histogram.cc.o
  ../include/leveldb/cxx.h
  /Users/kuiper/MyCodes/my_leveldb/util/histogram.cc
  /Users/kuiper/MyCodes/my_leveldb/util/histogram.h
+CMakeFiles/my_leveldb.dir/util/logging.cc.o
+ ../include/leveldb/cxx.h
+ ../include/leveldb/export.h
+ ../include/leveldb/slice.h
+ ../util/logging.h
+ /Users/kuiper/MyCodes/my_leveldb/util/logging.cc
 CMakeFiles/my_leveldb.dir/util/options.cc.o
  ../include/leveldb/comparator.h
  ../include/leveldb/env.h

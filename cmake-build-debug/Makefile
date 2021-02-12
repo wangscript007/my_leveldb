@@ -278,6 +278,33 @@ util/histogram.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/histogram.cc.s
 .PHONY : util/histogram.cc.s
 
+util/logging.o: util/logging.cc.o
+
+.PHONY : util/logging.o
+
+# target to build an object file
+util/logging.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/logging.cc.o
+.PHONY : util/logging.cc.o
+
+util/logging.i: util/logging.cc.i
+
+.PHONY : util/logging.i
+
+# target to preprocess a source file
+util/logging.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/logging.cc.i
+.PHONY : util/logging.cc.i
+
+util/logging.s: util/logging.cc.s
+
+.PHONY : util/logging.s
+
+# target to generate assembly for a file
+util/logging.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/logging.cc.s
+.PHONY : util/logging.cc.s
+
 util/options.o: util/options.cc.o
 
 .PHONY : util/options.o
@@ -356,6 +383,9 @@ help:
 	@echo "... util/histogram.o"
 	@echo "... util/histogram.i"
 	@echo "... util/histogram.s"
+	@echo "... util/logging.o"
+	@echo "... util/logging.i"
+	@echo "... util/logging.s"
 	@echo "... util/options.o"
 	@echo "... util/options.i"
 	@echo "... util/options.s"

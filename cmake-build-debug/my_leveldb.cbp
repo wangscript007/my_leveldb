@@ -105,6 +105,12 @@
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/histogram.h">
 			<Option target="my_leveldb"/>
 		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/logging.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/logging.h">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/options.cc">
 			<Option target="my_leveldb"/>
 		</Unit>

@@ -15,6 +15,8 @@ CMakeFiles/my_leveldb.dir/main.cpp.o: ../port/port_stdcxx.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../util/arena.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../util/coding.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../util/histogram.h
+CMakeFiles/my_leveldb.dir/main.cpp.o: ../util/logging.h
+CMakeFiles/my_leveldb.dir/main.cpp.o: ../util/mutexlock.h
 
 CMakeFiles/my_leveldb.dir/util/arena.cc.o: ../util/arena.h
 CMakeFiles/my_leveldb.dir/util/arena.cc.o: ../util/arena.cc
@@ -32,6 +34,12 @@ CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../util/comparator.cc
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: ../include/leveldb/cxx.h
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: ../util/histogram.cc
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: ../util/histogram.h
+
+CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../include/leveldb/cxx.h
+CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../include/leveldb/export.h
+CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../include/leveldb/slice.h
+CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../util/logging.h
+CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../util/logging.cc
 
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/comparator.h
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/env.h

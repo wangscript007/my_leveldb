@@ -31,10 +31,14 @@ namespace leveldb {
 
     private:
 
-        // 当Allocate时当前块内存不够时就会走这个
+        // @brief 当Allocate时当前块内存不够时就会走这个
+        // @param bytes 申请的字节数
+        // @return 申请内存的地址
         char *AllocateFallback(size_t bytes);
 
-        // 分配一个新的块.
+        // @brief 分配一个块
+        // @param block_bytes
+        // @return
         char *AllocateNewBlock(size_t block_bytes);
 
         char *alloc_ptr_;
