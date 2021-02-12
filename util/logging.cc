@@ -36,7 +36,7 @@ namespace leveldb {
     }
 
     bool ConsumeDecimalNumber(Slice *in, uint64_t *val) {
-
+        // fixme
     }
 
 }
