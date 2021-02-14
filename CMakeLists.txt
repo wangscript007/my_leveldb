@@ -17,4 +17,6 @@ add_executable(my_leveldb
         util/options.cc
         util/comparator.cc
         util/status.cc
-        util/logging.cc)
+        util/logging.cc
+        util/env.cc
+        util/env_posix.cc)

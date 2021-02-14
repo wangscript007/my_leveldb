@@ -99,6 +99,12 @@
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/comparator.cc">
 			<Option target="my_leveldb"/>
 		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/env.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/env_posix.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/histogram.cc">
 			<Option target="my_leveldb"/>
 		</Unit>
