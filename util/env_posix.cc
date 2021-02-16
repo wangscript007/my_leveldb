@@ -413,7 +413,7 @@ namespace leveldb {
             int fd() const { return fd_; }
 
             NO_DISCARD
-            const std::string &filename() const { return filename_ ;};
+            const std::string &filename() const { return filename_; };
         private:
             const int fd_;
             const std::string filename_;

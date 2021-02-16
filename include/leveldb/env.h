@@ -52,8 +52,10 @@ namespace leveldb {
 
         virtual Status NewRandomAccessFile(const std::string &fname, RandomAccessFile **result) = 0;
 
+        // O_TRUNC
         virtual Status NewWritableFile(const std::string &fname, WritableFile **result) = 0;
 
+        // O_APPEND
         virtual Status NewAppendableFile(const std::string &fname, WritableFile **result) = 0;
 
         virtual bool FileExists(const std::string &fname) = 0;

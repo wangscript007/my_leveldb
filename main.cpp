@@ -102,7 +102,7 @@ void testEnv() {
     auto pEnv = leveldb::Env::Default();
     std::cout << pEnv->NowMicros() << std::endl;
 
-    pEnv->SleepForMicroseconds(1000000L);
+    //pEnv->SleepForMicroseconds(1000000L);
     auto sx = pEnv->CreateDir("/data/posix_test");
     // std::cout << sx.ToString() << std::endl;
 
@@ -128,6 +128,24 @@ void testEnv() {
         }
     }
 
+    int a = 3;
+    pEnv->Schedule([](void* a) {
+        for (int i = 0; i < 100; ++i) {
+            std::cout << i * (*(int *)a) << std::endl;
+        }
+    }, &a);
 
+    // pEnv->SleepForMicroseconds(10000000L);
+    leveldb::WritableFile *writableFile = nullptr;
+    auto wfState = pEnv->NewAppendableFile("/data/buf.dat", &writableFile);
+    if (wfState.IsOK()) {
+        writableFile->Append("helloworld\n");
+        writableFile->Append("from guoxiang on 2020/02/16 20:34\n");
+        writableFile->Append("guowei is wangzherongyao\n");
+        writableFile->Append("guopeng is at old house");
+        // writableFile->Flush();
+        //writableFile->Sync();
+        delete writableFile;
+    }
 
 }
