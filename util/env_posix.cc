@@ -471,6 +471,7 @@ namespace leveldb {
                     return Status::OK();
                 }
 
+                // FIXME file_size=0时会导致mmap failed.
                 uint64_t file_size;
                 Status status = GetFileSize(fname, &file_size);
                 if (status.IsOK()) {

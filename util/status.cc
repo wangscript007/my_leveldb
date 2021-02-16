@@ -8,7 +8,7 @@
 namespace leveldb {
 
     Status::Status(Status::Code code, const Slice &msg, const Slice &msg2) {
-
+        // TODO.
     }
 
     // private static

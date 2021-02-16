@@ -18,6 +18,7 @@ extern void testArena();
 extern void testHistogram();
 extern void testState();
 extern void testAppendEscapedStringTo();
+extern void testEnv();
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -46,14 +47,9 @@ int main() {
     testHistogram();
     testState();
     testAppendEscapedStringTo();
-
+    testEnv();
     //
-    auto pEnv = leveldb::Env::Default();
-    std::cout << pEnv->NowMicros() << std::endl;
 
-    pEnv->SleepForMicroseconds(1000000L);
-    auto sx = pEnv->CreateDir("/data/posix_test");
-    std::cout << sx.ToString() << std::endl;
     return 0;
 }
 
@@ -100,4 +96,38 @@ void testAppendEscapedStringTo()
     std::string a = "\x8";
     auto a1 = leveldb::EscapeString(a);
     std::cout << a1 << std::endl;
+}
+
+void testEnv() {
+    auto pEnv = leveldb::Env::Default();
+    std::cout << pEnv->NowMicros() << std::endl;
+
+    pEnv->SleepForMicroseconds(1000000L);
+    auto sx = pEnv->CreateDir("/data/posix_test");
+    // std::cout << sx.ToString() << std::endl;
+
+    std::cout << std::boolalpha << pEnv->FileExists("/data/posix_test") << std::endl;
+
+    uint64_t filesize;
+    auto get_file_size_status = pEnv->GetFileSize("/data/posix_test", &filesize);
+    if (get_file_size_status.IsOK()) {
+        std::cout << "fileSize:" << filesize << std::endl;
+    }
+
+    auto rfState = pEnv->RemoveDir("/data/posix_test");
+    std::cout << rfState.ToString() << std::endl;
+
+    leveldb::RandomAccessFile *raf;
+    auto rafState =  pEnv->NewRandomAccessFile("/data/raf_test.out", &raf);
+    if (rafState.IsOK()) {
+        std::cout << raf << std::endl;
+        leveldb::Slice s;
+        auto readState = raf->Read(0, 3, &s, nullptr);
+        if (readState.IsOK()) {
+            std::cout << s.ToString() << std::endl;
+        }
+    }
+
+
+
 }
