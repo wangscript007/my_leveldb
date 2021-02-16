@@ -125,17 +125,36 @@ namespace leveldb {
         virtual ~WritableFile() = default;
 
         virtual Status Append(const Slice &data) = 0;
+
         virtual Status Close() = 0;
+
         virtual Status Flush() = 0;
+
         virtual Status Sync() = 0;
     };
 
     class LEVELDB_EXPORT Logger {
+    public:
+        Logger() = default;
 
+        Logger(const Logger &) = delete;
+
+        Logger &operator=(const Logger &) = delete;
+
+        virtual ~Logger() = default;
+
+        virtual void Logv(const char *fmt, std::va_list ap) = 0;
     };
 
     class LEVELDB_EXPORT FileLock {
+    public:
+        FileLock() = default;
 
+        FileLock(const FileLock &) = delete;
+
+        FileLock &operator=(const FileLock &) = delete;
+
+        virtual ~FileLock() = default;
     };
 
 }

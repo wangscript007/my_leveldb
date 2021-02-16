@@ -28,6 +28,8 @@
 #include <utility>
 
 #include "leveldb/env.h"
+#include "port/port.h"
+#include "util/mutexlock.h"
 
 namespace leveldb {
 
@@ -231,8 +233,35 @@ namespace leveldb {
             }
 
             Status Append(const Slice &data) override {
+                size_t write_size = data.size();
+                const char *write_data = data.data();
 
-                return Status::OK();
+                // 先写入缓冲区
+                auto copy_size = std::min(write_size, kWritableFileBufferSize - pos_);
+                std::memcpy(buf_ + pos_, write_data, copy_size);
+                write_data += copy_size;
+                write_size -= copy_size;
+                pos_ += copy_size;
+
+                // data全部写进缓冲区了则直接返回成功
+                if (write_size == 0) {
+                    return Status::OK();
+                }
+
+                Status status = FlushBuffer();
+                if (!status.IsOK()) {
+                    return status;
+                }
+
+                // 缓冲区清空后, 如果待写入的数据小于缓冲区，直接写入缓冲区
+                if (write_size < kWritableFileBufferSize) {
+                    std::memcpy(buf_, write_data, write_size);
+                    pos_ = write_size;
+                    return Status::OK();
+                }
+
+                // 如果比缓冲区大，直接刷入磁盘
+                return WriteUnbuffered(write_data, write_size);
             }
 
             Status Close() override {
@@ -311,7 +340,7 @@ namespace leveldb {
             }
 
             static Status SyncFd(int fd, const std::string &fd_path) {
-                // MacOsX上使用fcntl
+                // MacOsX和ios上使用fcntl
 #if  defined(F_FULLFSYNC)
                 if (::fcntl(fd, F_FULLFSYNC) == 0) {
                     return Status::OK();
@@ -330,11 +359,21 @@ namespace leveldb {
 
 
             static std::string Dirname(const std::string &filename) {
-
+                std::string::size_type separator_pos = filename.rfind('/');
+                if (separator_pos == std::string::npos) {
+                    return std::string(".");
+                }
+                assert(filename.find('/', separator_pos + 1) == std::string::npos);
+                return filename.substr(0, separator_pos);
             }
 
             static Slice Basename(const std::string &filename) {
-
+                std::string::size_type separator_pos = filename.rfind('/');
+                if (separator_pos == std::string::npos) {
+                    return Slice(filename);
+                }
+                assert(filename.find('/', separator_pos + 1) == std::string::npos);
+                return Slice(filename.data() + separator_pos + 1, filename.length() - separator_pos - 1);
             }
 
             static bool IsManifest(const std::string &filename) {
@@ -351,6 +390,50 @@ namespace leveldb {
             const std::string dirname_;
         };
 
-    } // endof namespace {
+        int LockOrUnlock(int fd, bool lock) {
+            errno = 0;
+            struct ::flock file_lock_info{};
+            std::memset(&file_lock_info, 0, sizeof(file_lock_info));
+            file_lock_info.l_type = lock ? F_WRLCK : F_UNLCK;
+            file_lock_info.l_whence = SEEK_SET;
+            file_lock_info.l_start = 0;
+            file_lock_info.l_len = 0; // until end of file
+            return ::fcntl(fd, F_SETLK, &file_lock_info);
+        }
+
+        class PosixFileLock : public FileLock {
+        public:
+            PosixFileLock(int fd, std::string filename)
+                    : fd_(fd),
+                      filename_(std::move(filename)) {}
+
+            NO_DISCARD
+            int fd() const { return fd_; }
+
+            NO_DISCARD
+            const std::string &filename() const { return filename_ };
+        private:
+            const int fd_;
+            const std::string filename_;
+        };
+
+        class PosixLockTable {
+        public:
+            bool Insert(const std::string &fname) {
+                MutexLock guard(&mu_);
+                return locked_files_.insert(fname).second;
+            }
+
+            void Remove(const std::string &fname) {
+                MutexLock guard(&mu_);
+                locked_files_.erase(fname);
+            }
+
+        private:
+            port::Mutex mu_;
+            std::set<std::string> locked_files_;
+        };
+
+    } // end of namespace {
 
 }
