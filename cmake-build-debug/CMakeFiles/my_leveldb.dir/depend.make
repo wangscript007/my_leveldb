@@ -4,6 +4,7 @@
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/cache.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/cxx.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/db.h
+CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/env.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/export.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/options.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/slice.h
@@ -31,6 +32,24 @@ CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../include/leveldb/comparator.h
 CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../include/leveldb/export.h
 CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../util/comparator.cc
 
+CMakeFiles/my_leveldb.dir/util/env.cc.o: ../include/leveldb/cxx.h
+CMakeFiles/my_leveldb.dir/util/env.cc.o: ../include/leveldb/env.h
+CMakeFiles/my_leveldb.dir/util/env.cc.o: ../include/leveldb/export.h
+CMakeFiles/my_leveldb.dir/util/env.cc.o: ../include/leveldb/slice.h
+CMakeFiles/my_leveldb.dir/util/env.cc.o: ../include/leveldb/status.h
+CMakeFiles/my_leveldb.dir/util/env.cc.o: ../util/env.cc
+
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../include/leveldb/cxx.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../include/leveldb/env.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../include/leveldb/export.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../include/leveldb/slice.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../include/leveldb/status.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../port/port.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../port/port_stdcxx.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../util/mutexlock.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../util/no_destructor.h
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../util/env_posix.cc
+
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: ../include/leveldb/cxx.h
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: ../util/histogram.cc
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: ../util/histogram.h
@@ -42,9 +61,12 @@ CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../util/logging.h
 CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../util/logging.cc
 
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/comparator.h
+CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/cxx.h
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/env.h
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/export.h
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/options.h
+CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/slice.h
+CMakeFiles/my_leveldb.dir/util/options.cc.o: ../include/leveldb/status.h
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../util/options.cc
 
 CMakeFiles/my_leveldb.dir/util/status.cc.o: ../include/leveldb/cxx.h

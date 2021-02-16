@@ -31,6 +31,7 @@
 #include "leveldb/env.h"
 #include "port/port.h"
 #include "util/mutexlock.h"
+#include "util/no_destructor.h"
 
 namespace leveldb {
 
@@ -412,7 +413,7 @@ namespace leveldb {
             int fd() const { return fd_; }
 
             NO_DISCARD
-            const std::string &filename() const { return filename_ };
+            const std::string &filename() const { return filename_ ;};
         private:
             const int fd_;
             const std::string filename_;
@@ -594,28 +595,29 @@ namespace leveldb {
             }
 
             Status UnlockFile(FileLock *lock) override {
-               auto * posixFileLock =  dynamic_cast<PosixFileLock*>(lock);
-               if(LockOrUnlock(posixFileLock->fd(), false) == -1) {
-                   return PosixError("unlock " + posixFileLock->filename(), errno);
-               }
-               locks_.Remove(posixFileLock->filename());
-               ::close(posixFileLock->fd());
-               delete posixFileLock;
-               return Status::OK();
+                auto *posixFileLock = dynamic_cast<PosixFileLock *>(lock);
+                if (LockOrUnlock(posixFileLock->fd(), false) == -1) {
+                    return PosixError("unlock " + posixFileLock->filename(), errno);
+                }
+                locks_.Remove(posixFileLock->filename());
+                ::close(posixFileLock->fd());
+                delete posixFileLock;
+                return Status::OK();
             }
 
             void Schedule(void (*func)(void *), void *arg) override;
+
             void StartThread(void (*func)(void *), void *arg) override {
                 std::thread thr(func, arg);
                 thr.detach();
             }
 
             Status GetTestDirectory(std::string *path) override {
-
+                return Status::OK();
             }
 
             Status NewLogger(const std::string &fname, Logger **result) override {
-
+                return Status::OK();
             }
 
             uint64_t NowMicros() override {
@@ -630,15 +632,95 @@ namespace leveldb {
             }
 
         private:
+            void BackgroundThreadMain();
+
+            static void BackgroundThreadEntryPoint(PosixEnv *env) {
+                env->BackgroundThreadMain();
+            }
+
+            struct BackgroundWorkItem {
+                explicit BackgroundWorkItem(void (*func)(void *arg), void *a)
+                        : function(func), arg(a) {}
+
+                void (*const function)(void *);
+
+                void *const arg;
+            };
+
+            port::Mutex background_work_mutex_;
+            port::CondVar background_work_cv_;                          // guarded by background_work_mutex_
+            bool started_background_thread_;                            // guarded by background_work_mutex_
+            std::queue<BackgroundWorkItem> background_work_queue_;      // guarded by background_work_mutex_
+
             PosixLockTable locks_;   // Thread-safe
             Limiter mmap_limiter_;  // Thread-safe
             Limiter fd_limiter_;    // Thread-safe
         };
 
-        void leveldb::PosixEnv::Schedule(void (*func)(void *), void *arg) {
+
+        int MaxMmaps() { return g_mmap_limit; }
+
+        int MaxOpenFiles() {
+            if (g_open_read_only_file_limit >= 0) {
+                return g_open_read_only_file_limit;
+            }
+            struct ::rlimit rlim{};
+            if (::getrlimit(RLIMIT_NOFILE, &rlim)) {
+                // getrlimit failed, fallback to hard-coded default.
+                g_open_read_only_file_limit = 50;
+            } else if (rlim.rlim_cur == RLIM_INFINITY) {
+                g_open_read_only_file_limit = std::numeric_limits<int>::max();
+            } else {
+                // Allow use of 20% of available file descriptors for read-only files.
+                g_open_read_only_file_limit = rlim.rlim_cur / 5;
+            }
+            return g_open_read_only_file_limit;
+        }
+
+        PosixEnv::PosixEnv()
+                : background_work_cv_(&background_work_mutex_),
+                  started_background_thread_(false),
+                  mmap_limiter_(MaxMmaps()),
+                  fd_limiter_(MaxOpenFiles()) {}
+
+        void PosixEnv::Schedule(void (*func)(void *), void *arg) {
+            background_work_mutex_.Lock();
+
+            if (!started_background_thread_) {
+                started_background_thread_ = true;
+                std::thread background_thread(&BackgroundThreadEntryPoint, this);
+                background_thread.detach();
+            }
+
+            background_work_queue_.emplace(func, arg);
+            background_work_mutex_.Unlock();
+            background_work_cv_.Signal();
 
         }
 
+        void PosixEnv::BackgroundThreadMain() {
+            for (;;) {
+                background_work_mutex_.Lock();
+                while (background_work_queue_.empty()) {
+                    background_work_cv_.Wait();
+                }
+                assert(!background_work_queue_.empty());
+                auto func = background_work_queue_.front().function;
+                auto arg = background_work_queue_.front().arg;
+                background_work_queue_.pop();
+
+                background_work_mutex_.Unlock();
+                // start routine
+                func(arg);
+            }
+        }
+
+
     } // end of namespace {
+
+    Env *Env::Default() {
+        static NoDestructor<PosixEnv> envContainer;
+        return envContainer.get();
+    }
 
 }

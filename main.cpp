@@ -12,6 +12,7 @@
 #include "leveldb/status.h"
 #include "util/mutexlock.h"
 #include "util/logging.h"
+#include "leveldb/env.h"
 
 extern void testArena();
 extern void testHistogram();
@@ -46,7 +47,13 @@ int main() {
     testState();
     testAppendEscapedStringTo();
 
+    //
+    auto pEnv = leveldb::Env::Default();
+    std::cout << pEnv->NowMicros() << std::endl;
 
+    pEnv->SleepForMicroseconds(1000000L);
+    auto sx = pEnv->CreateDir("/data/posix_test");
+    std::cout << sx.ToString() << std::endl;
     return 0;
 }
 

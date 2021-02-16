@@ -34,8 +34,4 @@ namespace leveldb {
     Status Env::DeleteFile(const std::string &fname) {
         return RemoveFile(fname);
     }
-
-    Env *Env::Default() {
-        return nullptr;
-    }
 }

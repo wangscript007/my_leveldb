@@ -5,6 +5,7 @@ CMakeFiles/my_leveldb.dir/main.cpp.o
  ../include/leveldb/cache.h
  ../include/leveldb/cxx.h
  ../include/leveldb/db.h
+ ../include/leveldb/env.h
  ../include/leveldb/export.h
  ../include/leveldb/options.h
  ../include/leveldb/slice.h
@@ -31,6 +32,24 @@ CMakeFiles/my_leveldb.dir/util/comparator.cc.o
  ../include/leveldb/comparator.h
  ../include/leveldb/export.h
  /Users/kuiper/MyCodes/my_leveldb/util/comparator.cc
+CMakeFiles/my_leveldb.dir/util/env.cc.o
+ ../include/leveldb/cxx.h
+ ../include/leveldb/env.h
+ ../include/leveldb/export.h
+ ../include/leveldb/slice.h
+ ../include/leveldb/status.h
+ /Users/kuiper/MyCodes/my_leveldb/util/env.cc
+CMakeFiles/my_leveldb.dir/util/env_posix.cc.o
+ ../include/leveldb/cxx.h
+ ../include/leveldb/env.h
+ ../include/leveldb/export.h
+ ../include/leveldb/slice.h
+ ../include/leveldb/status.h
+ ../port/port.h
+ ../port/port_stdcxx.h
+ ../util/mutexlock.h
+ ../util/no_destructor.h
+ /Users/kuiper/MyCodes/my_leveldb/util/env_posix.cc
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o
  ../include/leveldb/cxx.h
  /Users/kuiper/MyCodes/my_leveldb/util/histogram.cc
@@ -43,9 +62,12 @@ CMakeFiles/my_leveldb.dir/util/logging.cc.o
  /Users/kuiper/MyCodes/my_leveldb/util/logging.cc
 CMakeFiles/my_leveldb.dir/util/options.cc.o
  ../include/leveldb/comparator.h
+ ../include/leveldb/cxx.h
  ../include/leveldb/env.h
  ../include/leveldb/export.h
  ../include/leveldb/options.h
+ ../include/leveldb/slice.h
+ ../include/leveldb/status.h
  /Users/kuiper/MyCodes/my_leveldb/util/options.cc
 CMakeFiles/my_leveldb.dir/util/status.cc.o
  ../include/leveldb/cxx.h
