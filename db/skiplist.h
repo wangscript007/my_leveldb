@@ -165,7 +165,12 @@ namespace leveldb {
 
     template<typename Key, class Comparator>
     bool SkipList<Key, Comparator>::Contains(const Key &key) const {
-        return false;
+        Node* x = FindGreaterOrEqual(key, nullptr);
+        if (x != nullptr && Equal(key, x->key)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     template<typename Key, class Comparator>
@@ -175,7 +180,21 @@ namespace leveldb {
 
     template<typename Key, typename Compare>
     typename SkipList<Key, Compare>::Node *SkipList<Key, Compare>::FindLessThan(const Key &key) const {
-
+        Node* x = head_;
+        int level = GetMaxHeight() - 1;
+        for(;;) {
+            assert(x == head_ || compare_(x->key, key) < 0);
+            Node* next = x->Next(level);
+            if (next == nullptr || comparator_(next->key, key) <= 0) {
+                if (level == 0) {
+                    return x;
+                } else {
+                    level--;
+                }
+            } else {
+                x = next;
+            }
+        }
     }
 
     template<typename Key, typename Compare>
