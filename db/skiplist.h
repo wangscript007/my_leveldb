@@ -59,6 +59,7 @@ namespace leveldb {
 
         bool KeyIsAfterNode(const Key &key, Node *n) const;
 
+        // 可能返回nullptr
         Node *FindGreaterOrEqual(const Key &key, Node **prev) const;
 
         Node *FindLessThan(const Key &key) const;
@@ -141,14 +142,14 @@ namespace leveldb {
 
     template<typename Key, class Comparator>
     void SkipList<Key, Comparator>::Insert(const Key &key) {
-        Node* prev[kMaxHeight];
-        Node* x = FindGreaterOrEqual(key, prev);
-        assert(x  == nullptr || !Equal(key, x->key));
+        Node *prev[kMaxHeight];
+        Node *x = FindGreaterOrEqual(key, prev);
+        assert(x == nullptr || !Equal(key, x->key));
 
         // 随机加高SkipList
         int height = RandomHeight();
         if (height > GetMaxHeight()) {
-            for (int i = GetMaxHeight(); i < height ; ++i) {
+            for (int i = GetMaxHeight(); i < height; ++i) {
                 prev[i] = head_;
             }
             max_height_.store(height, std::memory_order_relaxed);
@@ -160,6 +161,11 @@ namespace leveldb {
             x->NoBarrier_SetNext(i, prev[i]->NoBarrier_Next(i));
             prev[i]->SetNext(i, x);
         }
+    }
+
+    template<typename Key, class Comparator>
+    bool SkipList<Key, Comparator>::Contains(const Key &key) const {
+        return false;
     }
 
     template<typename Key, class Comparator>
@@ -177,8 +183,20 @@ namespace leveldb {
     SkipList<Key, Compare>::FindGreaterOrEqual(const Key &key, SkipList::Node **prev) const {
         Node *x = head_;
         int level = GetMaxHeight() - 1;
-        while (true) {
-
+        for (;;) {
+            Node *next = x->Next(level);
+            if (KeyIsAfterNode(key, next)) {
+                // 如果key在node之后，则跳转下一节点
+                x = next;
+            } else {
+                // key在node之前
+                if (prev != nullptr) prev[level] = x;
+                if (level == 0) {
+                    return next;
+                } else {
+                    level--;
+                }
+            }
         }
     }
 
@@ -186,9 +204,19 @@ namespace leveldb {
     typename SkipList<Key, Compare>::Node *SkipList<Key, Compare>::FindLast() const {
         Node *x = head_;
         int level = GetMaxHeight() - 1;
+        for (;;) {
+            Node *next = x->Next(level);
+            if (next == nullptr) {
+                if (level == 0) {
+                    return x;
+                } else {
+                    level--;
+                }
+            } else {
+                x = next;
+            }
+        }
     }
-
-
 
 
 }
