@@ -137,6 +137,7 @@ void testEnv() {
 
     // pEnv->SleepForMicroseconds(10000000L);
     leveldb::WritableFile *writableFile = nullptr;
+    // std::unique_ptr<leveldb::WritableFile> w
     auto wfState = pEnv->NewAppendableFile("/data/buf.dat", &writableFile);
     if (wfState.IsOK()) {
         writableFile->Append("helloworld\n");
@@ -147,5 +148,6 @@ void testEnv() {
         //writableFile->Sync();
         delete writableFile;
     }
+
 
 }
