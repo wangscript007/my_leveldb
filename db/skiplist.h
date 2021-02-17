@@ -9,7 +9,6 @@
 #include "util/random.h"
 
 namespace leveldb {
-    class Arena;
 
     template<typename Key, class Comparator>
     class SkipList {
@@ -82,31 +81,43 @@ namespace leveldb {
         explicit Node(const Key &k) : key(k) {}
 
         Node *Next(int n) {
-            assert(n > 0);
+            assert(n >= 0);
             return next_[n].load(std::memory_order_acquire);
         }
 
         void SetNext(int n, Node *node) {
-            assert(n > 0);
+            assert(n >= 0);
             next_[n].store(node, std::memory_order_release);
         }
 
         Node *NoBarrier_Next(int n) {
-            assert(n > 0);
+            assert(n >= 0);
             return next_[n].load(std::memory_order_relaxed);
         }
 
         void NoBarrier_SetNext(int n, Node *node) {
-            assert(n > 0);
+            assert(n >= 0);
             next_[n].store(node, std::memory_order_relaxed);
         }
 
     public:
         Key const key;
     private:
-        // 数组的长度=节点的高度
+        // 数组的长度=节点的高度 分别记录当前节点在高度为n的next
         std::atomic<Node *> next_[1];
     };
+
+    template<typename Key, typename Compare>
+    SkipList<Key, Compare>::SkipList(Compare cmp, Arena *arena)
+            :   comparator_(cmp),
+                arena_(arena),
+                head_(NewNode(0, kMaxHeight)),
+                max_height_(1),
+                rnd_(0xdeadbeef) {
+        for (int i = 0; i < kMaxHeight; ++i) {
+            head_->SetNext(i, nullptr);
+        }
+    }
 
     template<typename Key, typename Compare>
     typename SkipList<Key, Compare>::Node *SkipList<Key, Compare>::NewNode(const Key &key, int height) {
@@ -128,8 +139,31 @@ namespace leveldb {
         return height;
     }
 
-    template<typename Key, typename Compare>
-    bool SkipList<Key, Compare>::KeyIsAfterNode(const Key &key, Node *n) const {
+    template<typename Key, class Comparator>
+    void SkipList<Key, Comparator>::Insert(const Key &key) {
+        Node* prev[kMaxHeight];
+        Node* x = FindGreaterOrEqual(key, prev);
+        assert(x  == nullptr || !Equal(key, x->key));
+
+        // 随机加高SkipList
+        int height = RandomHeight();
+        if (height > GetMaxHeight()) {
+            for (int i = GetMaxHeight(); i < height ; ++i) {
+                prev[i] = head_;
+            }
+            max_height_.store(height, std::memory_order_relaxed);
+        }
+
+        // Insert
+        x = NewNode(key, height);
+        for (int i = 0; i < height; ++i) {
+            x->NoBarrier_SetNext(i, prev[i]->NoBarrier_Next(i));
+            prev[i]->SetNext(i, x);
+        }
+    }
+
+    template<typename Key, class Comparator>
+    bool SkipList<Key, Comparator>::KeyIsAfterNode(const Key &key, SkipList::Node *n) const {
         return (n != nullptr) && (comparator_(n->key, key) < 0);
     }
 
@@ -140,14 +174,21 @@ namespace leveldb {
 
     template<typename Key, typename Compare>
     typename SkipList<Key, Compare>::Node *
-    SkipList<Key, Compare>::FindGreaterOrEqual(const Key &key, Node **prev) const {
+    SkipList<Key, Compare>::FindGreaterOrEqual(const Key &key, SkipList::Node **prev) const {
+        Node *x = head_;
+        int level = GetMaxHeight() - 1;
+        while (true) {
 
+        }
     }
 
     template<typename Key, typename Compare>
     typename SkipList<Key, Compare>::Node *SkipList<Key, Compare>::FindLast() const {
-
+        Node *x = head_;
+        int level = GetMaxHeight() - 1;
     }
+
+
 
 
 }

@@ -13,12 +13,19 @@
 #include "util/mutexlock.h"
 #include "util/logging.h"
 #include "leveldb/env.h"
+#include "db/skiplist.h"
 
 extern void testArena();
+
 extern void testHistogram();
+
 extern void testState();
+
 extern void testAppendEscapedStringTo();
+
 extern void testEnv();
+
+extern void testSkipList();
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -49,26 +56,25 @@ int main() {
     testAppendEscapedStringTo();
     testEnv();
     //
+    testSkipList();
 
     return 0;
 }
 
- void testArena()
-{
+void testArena() {
     leveldb::Arena a;
-    for(int i = 0; i <100;i++) {
+    for (int i = 0; i < 100; i++) {
         a.Allocate(1);
     }
     std::cout << "total: " << a.MemoryUsage() << std::endl;
 }
 
-void testHistogram(){
+void testHistogram() {
     leveldb::Histogram histogram;
 
 }
 
-void testState()
-{
+void testState() {
     auto s = leveldb::Status::OK();
     std::cout << s.ToString() << std::endl;
     std::cout << std::boolalpha;
@@ -79,8 +85,7 @@ void testState()
     std::cout << s.IsIOError() << std::endl;
 }
 
-void testAppendEscapedStringTo()
-{
+void testAppendEscapedStringTo() {
     std::string res;
     leveldb::AppendEscapedStringTo(&res, "aa\x6zzzz");
     std::cout << res << std::endl;
@@ -118,7 +123,7 @@ void testEnv() {
     std::cout << rfState.ToString() << std::endl;
 
     leveldb::RandomAccessFile *raf;
-    auto rafState =  pEnv->NewRandomAccessFile("/data/raf_test.out", &raf);
+    auto rafState = pEnv->NewRandomAccessFile("/data/raf_test.out", &raf);
     if (rafState.IsOK()) {
         std::cout << raf << std::endl;
         leveldb::Slice s;
@@ -129,9 +134,9 @@ void testEnv() {
     }
 
     int a = 3;
-    pEnv->Schedule([](void* a) {
+    pEnv->Schedule([](void *a) {
         for (int i = 0; i < 100; ++i) {
-            std::cout << i * (*(int *)a) << std::endl;
+            std::cout << i * (*(int *) a) << std::endl;
         }
     }, &a);
 
@@ -150,4 +155,13 @@ void testEnv() {
     }
 
 
+}
+
+void testSkipList() {
+    leveldb::Arena arena;
+    leveldb::SkipList<int, std::less<>> list(std::less<>(), &arena);
+    for (int i = 0; i < 1000; ++i) {
+        list.Insert(i);
+    }
+    std::cout   <<"done" << std::endl;
 }
