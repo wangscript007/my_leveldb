@@ -82,6 +82,7 @@ namespace leveldb::log {
         char buf[kHeaderSize];
         buf[4] = static_cast<char>(length & 0xffull);
         buf[5] = static_cast<char>(length >> 8ull);
+        buf[6] = static_cast<char>(type);
 
         // 计算并写入CRC32C
         uint32_t crc = crc32c::Extend(type_crc_[type], ptr, length);
