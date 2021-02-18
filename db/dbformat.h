@@ -65,10 +65,19 @@ namespace leveldb {
         return key.user_key.size() + 8;
     }
 
+    __STATIC_INLINE__
+    uint64_t PackSequenceAndType(uint64_t seq, ValueType t) {
+        assert(seq <= kMaxSequenceNumber);
+        assert(t <= kValueTypeForSeek);
+        return (seq << 8) | (static_cast<uint64_t>(t));
+    }
+
     // 将key序列化后存储到dest中
     __STATIC_INLINE__
     void AppendInternalKey(std::string *dest, const ParsedInternalKey &key) {
-
+        // dest->clear(); should do this ???
+        dest->append(key.user_key.ToString());
+        PutFixed64(dest, PackSequenceAndType(key.sequence, key.type));
     }
 
     // 尝试解析src_internal_key

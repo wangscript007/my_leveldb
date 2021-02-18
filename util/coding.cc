@@ -14,7 +14,7 @@ namespace leveldb {
         dst->append(buf, sizeof(buf));
     }
 
-    void PutFixed64(std::string *dst, uint32_t value) {
+    void PutFixed64(std::string *dst, uint64_t value) {
         char buf[sizeof(value)];
         EncodeFixed64(buf, value);
         dst->append(buf, sizeof(buf));
