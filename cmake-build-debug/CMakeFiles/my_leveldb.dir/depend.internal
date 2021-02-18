@@ -24,6 +24,8 @@ CMakeFiles/my_leveldb.dir/db/log_writer.cc.o
  ../port/port.h
  ../port/port_likely.h
  ../port/port_stdcxx.h
+ ../util/coding.h
+ ../util/crc32c.h
  /Users/kuiper/MyCodes/my_leveldb/db/log_writer.cc
 CMakeFiles/my_leveldb.dir/main.cpp.o
  ../db/log_format.h
@@ -38,6 +40,7 @@ CMakeFiles/my_leveldb.dir/main.cpp.o
  ../port/port.h
  ../port/port_likely.h
  ../util/random.h
+ /Users/kuiper/MyCodes/my_leveldb/db/log_reader.h
  /Users/kuiper/MyCodes/my_leveldb/db/log_writer.h
  /Users/kuiper/MyCodes/my_leveldb/db/skiplist.h
  /Users/kuiper/MyCodes/my_leveldb/main.cpp

@@ -23,6 +23,8 @@ CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../include/leveldb/status.h
 CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../port/port.h
 CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../port/port_likely.h
 CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../port/port_stdcxx.h
+CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../util/coding.h
+CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../util/crc32c.h
 CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../db/log_writer.cc
 
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/log_format.h
@@ -37,6 +39,7 @@ CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/status.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../port/port.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../port/port_likely.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../util/random.h
+CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/log_reader.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/log_writer.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/skiplist.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../main.cpp

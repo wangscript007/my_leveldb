@@ -8,6 +8,7 @@
 
 namespace leveldb {
 
+    // util/env.cc
     extern Status WriteStringToFileSync(Env *env, const Slice &data, const std::string &fname);
 
     static std::string MakeFileName(const std::string &dbname, uint64_t number, const char *suffix) {
