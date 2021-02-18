@@ -17,13 +17,13 @@ namespace leveldb {
 
     // leveldb用到的所有文件类型
     enum FileType {
-        kLogFile,
-        kDBLockFile,
-        kTableFile,
-        kDescriptorFile,
-        kCurrentFile,
-        kTempFile,
-        kInfoLogFile
+        kLogFile,           // dbname/[0-9]+.log
+        kDBLockFile,        // dbname/LOCK
+        kTableFile,         // dbname/[0-9]+.[sst|ldb]
+        kDescriptorFile,    // dbname/MANIFEST-[0-9]+
+        kCurrentFile,       // dbname/CURRENT
+        kTempFile,          // dbname/[0-9]+.dbtmp
+        kInfoLogFile        // dbname/LOG  or dbname/LOG.old
     };
 
     extern std::string LogFileName(const std::string &dbname, uint64_t number);
