@@ -84,6 +84,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/filename.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/filename.h">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/log_writer.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/log_writer.h">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/main.cpp">
 			<Option target="my_leveldb"/>
 		</Unit>
@@ -97,6 +109,12 @@
 			<Option target="my_leveldb"/>
 		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/comparator.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/crc32c.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/crc32c.h">
 			<Option target="my_leveldb"/>
 		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/env.cc">

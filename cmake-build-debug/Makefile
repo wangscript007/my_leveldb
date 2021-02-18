@@ -143,6 +143,60 @@ my_leveldb/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/build
 .PHONY : my_leveldb/fast
 
+db/filename.o: db/filename.cc.o
+
+.PHONY : db/filename.o
+
+# target to build an object file
+db/filename.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/filename.cc.o
+.PHONY : db/filename.cc.o
+
+db/filename.i: db/filename.cc.i
+
+.PHONY : db/filename.i
+
+# target to preprocess a source file
+db/filename.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/filename.cc.i
+.PHONY : db/filename.cc.i
+
+db/filename.s: db/filename.cc.s
+
+.PHONY : db/filename.s
+
+# target to generate assembly for a file
+db/filename.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/filename.cc.s
+.PHONY : db/filename.cc.s
+
+db/log_writer.o: db/log_writer.cc.o
+
+.PHONY : db/log_writer.o
+
+# target to build an object file
+db/log_writer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/log_writer.cc.o
+.PHONY : db/log_writer.cc.o
+
+db/log_writer.i: db/log_writer.cc.i
+
+.PHONY : db/log_writer.i
+
+# target to preprocess a source file
+db/log_writer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/log_writer.cc.i
+.PHONY : db/log_writer.cc.i
+
+db/log_writer.s: db/log_writer.cc.s
+
+.PHONY : db/log_writer.s
+
+# target to generate assembly for a file
+db/log_writer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/log_writer.cc.s
+.PHONY : db/log_writer.cc.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -250,6 +304,33 @@ util/comparator.s: util/comparator.cc.s
 util/comparator.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/comparator.cc.s
 .PHONY : util/comparator.cc.s
+
+util/crc32c.o: util/crc32c.cc.o
+
+.PHONY : util/crc32c.o
+
+# target to build an object file
+util/crc32c.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/crc32c.cc.o
+.PHONY : util/crc32c.cc.o
+
+util/crc32c.i: util/crc32c.cc.i
+
+.PHONY : util/crc32c.i
+
+# target to preprocess a source file
+util/crc32c.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/crc32c.cc.i
+.PHONY : util/crc32c.cc.i
+
+util/crc32c.s: util/crc32c.cc.s
+
+.PHONY : util/crc32c.s
+
+# target to generate assembly for a file
+util/crc32c.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/crc32c.cc.s
+.PHONY : util/crc32c.cc.s
 
 util/env.o: util/env.cc.o
 
@@ -422,6 +503,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... my_leveldb"
+	@echo "... db/filename.o"
+	@echo "... db/filename.i"
+	@echo "... db/filename.s"
+	@echo "... db/log_writer.o"
+	@echo "... db/log_writer.i"
+	@echo "... db/log_writer.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -434,6 +521,9 @@ help:
 	@echo "... util/comparator.o"
 	@echo "... util/comparator.i"
 	@echo "... util/comparator.s"
+	@echo "... util/crc32c.o"
+	@echo "... util/crc32c.i"
+	@echo "... util/crc32c.s"
 	@echo "... util/env.o"
 	@echo "... util/env.i"
 	@echo "... util/env.s"

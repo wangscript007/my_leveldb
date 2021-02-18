@@ -19,4 +19,13 @@ add_executable(my_leveldb
         util/status.cc
         util/logging.cc
         util/env.cc
-        util/env_posix.cc)
+        util/env_posix.cc
+        util/crc32c.cc
+
+        db/filename.cc
+        db/log_writer.cc
+        #db/log_reader.cc
+        #db/memtable.cc
+        #db/write_batch.cc
+        #db/dumpfile.cc
+        )

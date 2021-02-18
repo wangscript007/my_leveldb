@@ -1,8 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/my_leveldb.dir/db/filename.cc.o"
+  "CMakeFiles/my_leveldb.dir/db/log_writer.cc.o"
   "CMakeFiles/my_leveldb.dir/main.cpp.o"
   "CMakeFiles/my_leveldb.dir/util/arena.cc.o"
   "CMakeFiles/my_leveldb.dir/util/cache.cc.o"
   "CMakeFiles/my_leveldb.dir/util/comparator.cc.o"
+  "CMakeFiles/my_leveldb.dir/util/crc32c.cc.o"
   "CMakeFiles/my_leveldb.dir/util/env.cc.o"
   "CMakeFiles/my_leveldb.dir/util/env_posix.cc.o"
   "CMakeFiles/my_leveldb.dir/util/histogram.cc.o"

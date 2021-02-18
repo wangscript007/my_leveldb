@@ -14,6 +14,7 @@
 #include "util/logging.h"
 #include "leveldb/env.h"
 #include "db/skiplist.h"
+#include "db/log_writer.h"
 
 extern void testArena();
 
@@ -26,6 +27,8 @@ extern void testAppendEscapedStringTo();
 extern void testEnv();
 
 extern void testSkipList();
+
+extern void testLogWriter();
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -57,6 +60,7 @@ int main() {
     testEnv();
     //
     testSkipList();
+    testLogWriter();
 
     return 0;
 }
@@ -164,4 +168,14 @@ void testSkipList() {
         list.Insert(i);
     }
     std::cout   <<"done" << std::endl;
+}
+
+void testLogWriter() {
+    auto env = leveldb::Env::Default();
+    leveldb::WritableFile *wf = nullptr;
+    auto s = env->NewWritableFile("/data/leveld_log_test", &wf);
+    if (s.IsOK()) {
+        leveldb::log::Writer logWriter(wf);
+        logWriter.AddRecord("aaaaaaaaaaaaaaaaaaaaaaaaa");
+    }
 }

@@ -5,6 +5,14 @@
 #ifndef MY_LEVELDB_PORT_STDCXX_H
 #define MY_LEVELDB_PORT_STDCXX_H
 
+
+#if HAVE_CRC32C
+#include <crc32c/crc32c.h>
+#endif  // HAVE_CRC32C
+#if HAVE_SNAPPY
+#include <snappy.h>
+#endif  // HAVE_SNAPPY
+
 #include <mutex>
 #include <condition_variable>
 
@@ -56,6 +64,7 @@ namespace leveldb {
             ~CondVar() = default;
 
             CondVar(const CondVar &) = delete;
+
             CondVar &operator=(CondVar &) = delete;
 
             void Wait() {
@@ -73,6 +82,19 @@ namespace leveldb {
             Mutex *const pMutex_;
             std::condition_variable cv_;
         };
+
+
+        inline uint32_t AcceleratedCRC32C(uint32_t crc, const char *buf, size_t size) {
+#if HAVE_CRC32C
+            return ::crc32c::Extend(crc, reinterpret_cast<const uint8_t*>(buf), size);
+#else
+            // Silence compiler warnings about unused arguments.
+            (void) crc;
+            (void) buf;
+            (void) size;
+            return 0;
+#endif  // HAVE_CRC32C
+        }
 
     }
 }
