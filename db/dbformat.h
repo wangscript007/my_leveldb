@@ -154,7 +154,9 @@ namespace leveldb {
     public:
         explicit InternalKeyComparator(const Comparator *c) : user_comparator_(c) {}
 
-        const char *Name() const override;
+        const char *Name() const override {
+            return "leveldb.InternalKeyComparator";
+        }
 
         int Compare(const Slice &a, const Slice &b) const override;
 
@@ -167,6 +169,12 @@ namespace leveldb {
         int Compare(const InternalKey &a, const InternalKey &b) const {
             return Compare(a.Encode(), b.Encode());
         }
+    };
+
+    // Helper-Class 用于DBImpl::Get()
+    class LookupKey {
+    public:
+    private:
     };
 
 }
