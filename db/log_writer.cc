@@ -5,6 +5,8 @@
 #include "db/log_writer.h"
 #include "leveldb/env.h"
 #include "port/port.h"
+#include "util/coding.h"
+#include "util/crc32c.h"
 
 namespace leveldb::log {
 
@@ -81,7 +83,10 @@ namespace leveldb::log {
         buf[4] = static_cast<char>(length & 0xffull);
         buf[5] = static_cast<char>(length >> 8ull);
 
-        // 计算并写入CRC32C TODO
+        // 计算并写入CRC32C
+        uint32_t crc = crc32c::Extend(type_crc_[type], ptr, length);
+        crc = crc32c::Mask(crc);
+        EncodeFixed32(buf, crc);
 
         // 写入物理块
         Status s = dest_->Append(Slice(buf, kHeaderSize));
@@ -91,6 +96,8 @@ namespace leveldb::log {
                 s = dest_->Flush();
             }
         }
+
+        // 如果写入s.IsNotOK(),也直接累计offset跳过这个段
         block_offset_ += static_cast<int>((kHeaderSize + length));
         return s;
     }
