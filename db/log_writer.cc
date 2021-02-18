@@ -11,7 +11,10 @@
 namespace leveldb::log {
 
     static void InitTypeCrc(uint32_t *type_crc) {
-        // fixme.
+        for (int i = 0; i <= kMaxRecordType; i++) {
+            char t = static_cast<char>(i);
+            type_crc[i] = crc32c::Value(&t, 1);
+        }
     }
 
     Writer::Writer(WritableFile *dest) : dest_(dest), block_offset_(0) {
@@ -22,8 +25,6 @@ namespace leveldb::log {
             : dest_(dest), block_offset_(dest_length % kBlockSize) {
         InitTypeCrc(type_crc_);
     }
-
-    Writer::~Writer() = default;
 
     Status Writer::AddRecord(const Slice &slice) {
         const char *ptr = slice.data();

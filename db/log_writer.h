@@ -25,7 +25,7 @@ namespace leveldb {
             Writer(const Writer&) = delete;
             Writer& operator=(const Writer&) = delete;
 
-            ~Writer();
+            ~Writer() = default;
 
             Status AddRecord(const Slice& slice);
 
@@ -35,7 +35,7 @@ namespace leveldb {
             WritableFile *dest_;
             int block_offset_;  // 在块中的当前offset
 
-            uint32_t type_crc_[kMaxRecordType + 1]; // crc码
+            uint32_t type_crc_[kMaxRecordType + 1]{}; // crc码
 
         };
 
