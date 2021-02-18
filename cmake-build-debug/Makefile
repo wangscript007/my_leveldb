@@ -170,6 +170,33 @@ db/filename.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/filename.cc.s
 .PHONY : db/filename.cc.s
 
+db/log_reader.o: db/log_reader.cc.o
+
+.PHONY : db/log_reader.o
+
+# target to build an object file
+db/log_reader.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/log_reader.cc.o
+.PHONY : db/log_reader.cc.o
+
+db/log_reader.i: db/log_reader.cc.i
+
+.PHONY : db/log_reader.i
+
+# target to preprocess a source file
+db/log_reader.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/log_reader.cc.i
+.PHONY : db/log_reader.cc.i
+
+db/log_reader.s: db/log_reader.cc.s
+
+.PHONY : db/log_reader.s
+
+# target to generate assembly for a file
+db/log_reader.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/log_reader.cc.s
+.PHONY : db/log_reader.cc.s
+
 db/log_writer.o: db/log_writer.cc.o
 
 .PHONY : db/log_writer.o
@@ -506,6 +533,9 @@ help:
 	@echo "... db/filename.o"
 	@echo "... db/filename.i"
 	@echo "... db/filename.s"
+	@echo "... db/log_reader.o"
+	@echo "... db/log_reader.i"
+	@echo "... db/log_reader.s"
 	@echo "... db/log_writer.o"
 	@echo "... db/log_writer.i"
 	@echo "... db/log_writer.s"

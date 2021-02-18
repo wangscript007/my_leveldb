@@ -90,6 +90,12 @@
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/filename.h">
 			<Option target="my_leveldb"/>
 		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/log_reader.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/log_reader.h">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/log_writer.cc">
 			<Option target="my_leveldb"/>
 		</Unit>

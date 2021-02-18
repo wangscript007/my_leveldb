@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/my_leveldb.dir/db/filename.cc.o"
+  "CMakeFiles/my_leveldb.dir/db/log_reader.cc.o"
   "CMakeFiles/my_leveldb.dir/db/log_writer.cc.o"
   "CMakeFiles/my_leveldb.dir/main.cpp.o"
   "CMakeFiles/my_leveldb.dir/util/arena.cc.o"

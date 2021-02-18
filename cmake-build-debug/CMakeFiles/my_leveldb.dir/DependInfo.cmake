@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/kuiper/MyCodes/my_leveldb/db/filename.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/db/filename.cc.o"
+  "/Users/kuiper/MyCodes/my_leveldb/db/log_reader.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/db/log_reader.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/db/log_writer.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/db/log_writer.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/main.cpp" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/main.cpp.o"
   "/Users/kuiper/MyCodes/my_leveldb/util/arena.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/util/arena.cc.o"

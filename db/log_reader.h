@@ -51,19 +51,21 @@ namespace leveldb {
                 kBadRecord = kMaxRecordType + 2
             };
 
-            // @brief 跳过所有在initial_offset_之前的块
+            // @brief 调到initial_offset所在的块的快首地址
             bool SkipToInitialBlock();
 
-            unsigned int ReadPhysicalRecord(Slice * result);
+            // @brief 读取一个物理块到result中
+            unsigned int ReadPhysicalRecord(Slice *result);
 
-            void ReportCorruption(uint64_t bytes, const char* reason);
-            void ReportDrop(uint64_t bytes, const Status & reason);
+            // @brief 汇报损坏.
+            void ReportCorruption(uint64_t bytes, const char *reason);
+            void ReportDrop(uint64_t bytes, const Status &reason);
 
         private:
-            SequentialFile* const file_;
-            Reporter* const reporter_;
+            SequentialFile *const file_;
+            Reporter *const reporter_;
             bool const checksum_;
-            char* const backing_store_;
+            char *const backing_store_;
             Slice buffer_;
             bool eof_;
 

@@ -24,7 +24,7 @@ add_executable(my_leveldb
 
         db/filename.cc
         db/log_writer.cc
-        #db/log_reader.cc
+        db/log_reader.cc
         #db/memtable.cc
         #db/write_batch.cc
         #db/dumpfile.cc
