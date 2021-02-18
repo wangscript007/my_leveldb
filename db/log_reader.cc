@@ -48,7 +48,7 @@ namespace leveldb::log {
     }
 
 
-    uint64_t Reader::LastRecordOffset() {
+    uint64_t Reader::LastRecordOffset() const {
         return last_record_offset_;
     }
 
@@ -71,6 +71,15 @@ namespace leveldb::log {
         }
         scratch->clear();
         record->clear();
+
+        bool in_fragmented_record = false;
+        uint64_t prospective_record_offset = 0;
+
+        Slice fragment;
+        while (true) {
+            const unsigned int record_type = ReadPhysicalRecord(&fragment);
+
+        }
 
     }
 

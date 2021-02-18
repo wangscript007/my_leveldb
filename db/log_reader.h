@@ -43,7 +43,7 @@ namespace leveldb {
 
             bool ReadRecord(Slice *slice, std::string *scratch);
 
-            uint64_t LastRecordOffset();
+            uint64_t LastRecordOffset() const;
 
         private:
             enum {

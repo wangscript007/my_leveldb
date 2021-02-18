@@ -8,4 +8,6 @@
 #include "port/port_stdcxx.h"
 #include "port/port_likely.h"
 
+#define __STATIC_INLINE__  static inline
+
 #endif //MY_LEVELDB_PORT_H
