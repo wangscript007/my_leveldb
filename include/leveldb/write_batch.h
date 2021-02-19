@@ -26,7 +26,6 @@ namespace leveldb {
         WriteBatch();
 
         WriteBatch(const WriteBatch &) = default;
-
         WriteBatch &operator=(const WriteBatch &) = default;
 
         ~WriteBatch();

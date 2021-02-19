@@ -39,6 +39,7 @@ namespace leveldb {
         static void Append(WriteBatch *dst, const WriteBatch *src);
 
     };
+
 }
 
 #endif //MY_LEVELDB_WRITE_BATCH_INTERNAL_H
