@@ -68,8 +68,10 @@ CMakeFiles/my_leveldb.dir/db/memtable.cc.o: ../util/logging.h
 CMakeFiles/my_leveldb.dir/db/memtable.cc.o: ../util/random.h
 CMakeFiles/my_leveldb.dir/db/memtable.cc.o: ../db/memtable.cc
 
+CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/dbformat.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/log_format.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/cache.h
+CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/comparator.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/cxx.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/db.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/env.h
@@ -83,6 +85,7 @@ CMakeFiles/my_leveldb.dir/main.cpp.o: ../port/port_likely.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../util/random.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/log_reader.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/log_writer.h
+CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/memtable.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/skiplist.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../main.cpp
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../port/port_stdcxx.h

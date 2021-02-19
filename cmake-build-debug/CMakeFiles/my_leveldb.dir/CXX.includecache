@@ -22,22 +22,6 @@ port/port.h
 
 ../db/log_format.h
 
-../db/memtable.h
-util/arena.h
-../db/util/arena.h
-db/skiplist.h
-../db/db/skiplist.h
-db/dbformat.h
-../db/db/dbformat.h
-leveldb/db.h
-../db/leveldb/db.h
-
-../db/skiplist.h
-util/arena.h
-../db/util/arena.h
-util/random.h
-../db/util/random.h
-
 ../include/leveldb/cache.h
 leveldb/cxx.h
 ../include/leveldb/leveldb/cxx.h
@@ -128,44 +112,6 @@ port/port_likely.h
 
 ../port/port_likely.h
 
-../port/port_stdcxx.h
-crc32c/crc32c.h
--
-snappy.h
--
-mutex
--
-condition_variable
--
-
-../util/arena.h
-atomic
--
-cassert
--
-cstdint
--
-vector
--
-
-../util/coding.h
-cstdint
--
-cstring
--
-string
--
-variant
--
-leveldb/slice.h
-../util/leveldb/slice.h
-port/port.h
-../util/port/port.h
-
-../util/logging.h
-string
--
-
 ../util/random.h
 cstdint
 -
@@ -190,13 +136,15 @@ leveldb/slice.h
 leveldb/status.h
 /Users/kuiper/MyCodes/my_leveldb/db/leveldb/status.h
 
-/Users/kuiper/MyCodes/my_leveldb/db/memtable.cc
-db/memtable.h
-/Users/kuiper/MyCodes/my_leveldb/db/db/memtable.h
+/Users/kuiper/MyCodes/my_leveldb/db/memtable.h
+util/arena.h
+/Users/kuiper/MyCodes/my_leveldb/db/util/arena.h
+db/skiplist.h
+/Users/kuiper/MyCodes/my_leveldb/db/db/skiplist.h
 db/dbformat.h
 /Users/kuiper/MyCodes/my_leveldb/db/db/dbformat.h
-leveldb/status.h
-/Users/kuiper/MyCodes/my_leveldb/db/leveldb/status.h
+leveldb/db.h
+/Users/kuiper/MyCodes/my_leveldb/db/leveldb/db.h
 
 /Users/kuiper/MyCodes/my_leveldb/db/skiplist.h
 util/arena.h
@@ -237,6 +185,8 @@ leveldb/env.h
 /Users/kuiper/MyCodes/my_leveldb/leveldb/env.h
 db/skiplist.h
 /Users/kuiper/MyCodes/my_leveldb/db/skiplist.h
+db/memtable.h
+/Users/kuiper/MyCodes/my_leveldb/db/memtable.h
 db/log_reader.h
 /Users/kuiper/MyCodes/my_leveldb/db/log_reader.h
 db/log_writer.h

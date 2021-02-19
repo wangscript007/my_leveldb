@@ -27,7 +27,8 @@ namespace leveldb {
     }
 
     int InternalKeyComparator::Compare(const Slice &a, const Slice &b) const {
-
+        // fixme
+        return 1;
     }
 
     void InternalKeyComparator::FindShortestSeparator(std::string *start, const Slice &limit) const {

@@ -14,6 +14,7 @@
 #include "util/logging.h"
 #include "leveldb/env.h"
 #include "db/skiplist.h"
+#include "db/memtable.h"
 
 #include "db/log_reader.h"
 #include "db/log_writer.h"
@@ -31,6 +32,8 @@ extern void testEnv();
 extern void testSkipList();
 
 extern void testLogWriter();
+
+extern void testMemTable();
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -55,6 +58,7 @@ int main() {
     leveldb::WriteOptions writeOptions;
     writeOptions.sync = true;
 
+    testMemTable();
     testArena();
     testHistogram();
     testState();
@@ -180,4 +184,13 @@ void testLogWriter() {
         leveldb::log::Writer logWriter(wf);
         logWriter.AddRecord("cccccccccccccccccccccc");
     }
+}
+
+void testMemTable()
+{
+    leveldb::InternalKeyComparator cmp(nullptr);
+    // leveldb::MemTable table(cmp);
+    auto memtable = new leveldb::MemTable(cmp);
+    memtable->Add(1, leveldb::kTypeValue, "aaaa", "bbbb");
+    memtable->Add(2, leveldb::kTypeValue, "cccc", "dddd");
 }

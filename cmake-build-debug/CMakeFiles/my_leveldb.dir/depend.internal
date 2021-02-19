@@ -69,8 +69,10 @@ CMakeFiles/my_leveldb.dir/db/memtable.cc.o
  ../util/random.h
  /Users/kuiper/MyCodes/my_leveldb/db/memtable.cc
 CMakeFiles/my_leveldb.dir/main.cpp.o
+ ../db/dbformat.h
  ../db/log_format.h
  ../include/leveldb/cache.h
+ ../include/leveldb/comparator.h
  ../include/leveldb/cxx.h
  ../include/leveldb/db.h
  ../include/leveldb/env.h
@@ -84,6 +86,7 @@ CMakeFiles/my_leveldb.dir/main.cpp.o
  ../util/random.h
  /Users/kuiper/MyCodes/my_leveldb/db/log_reader.h
  /Users/kuiper/MyCodes/my_leveldb/db/log_writer.h
+ /Users/kuiper/MyCodes/my_leveldb/db/memtable.h
  /Users/kuiper/MyCodes/my_leveldb/db/skiplist.h
  /Users/kuiper/MyCodes/my_leveldb/main.cpp
  /Users/kuiper/MyCodes/my_leveldb/port/port_stdcxx.h
