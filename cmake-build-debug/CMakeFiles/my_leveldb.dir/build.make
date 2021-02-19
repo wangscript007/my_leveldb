@@ -103,9 +103,22 @@ CMakeFiles/my_leveldb.dir/util/cache.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_leveldb.dir/util/cache.cc.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/my_leveldb/util/cache.cc -o CMakeFiles/my_leveldb.dir/util/cache.cc.s
 
+CMakeFiles/my_leveldb.dir/util/coding.cc.o: CMakeFiles/my_leveldb.dir/flags.make
+CMakeFiles/my_leveldb.dir/util/coding.cc.o: ../util/coding.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_leveldb.dir/util/coding.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/coding.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/coding.cc
+
+CMakeFiles/my_leveldb.dir/util/coding.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_leveldb.dir/util/coding.cc.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/my_leveldb/util/coding.cc > CMakeFiles/my_leveldb.dir/util/coding.cc.i
+
+CMakeFiles/my_leveldb.dir/util/coding.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_leveldb.dir/util/coding.cc.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/my_leveldb/util/coding.cc -o CMakeFiles/my_leveldb.dir/util/coding.cc.s
+
 CMakeFiles/my_leveldb.dir/util/arena.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/arena.cc.o: ../util/arena.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_leveldb.dir/util/arena.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_leveldb.dir/util/arena.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/arena.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/arena.cc
 
 CMakeFiles/my_leveldb.dir/util/arena.cc.i: cmake_force
@@ -118,7 +131,7 @@ CMakeFiles/my_leveldb.dir/util/arena.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/histogram.cc.o: ../util/histogram.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_leveldb.dir/util/histogram.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_leveldb.dir/util/histogram.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/histogram.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/histogram.cc
 
 CMakeFiles/my_leveldb.dir/util/histogram.cc.i: cmake_force
@@ -131,7 +144,7 @@ CMakeFiles/my_leveldb.dir/util/histogram.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/options.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/options.cc.o: ../util/options.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_leveldb.dir/util/options.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/my_leveldb.dir/util/options.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/options.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/options.cc
 
 CMakeFiles/my_leveldb.dir/util/options.cc.i: cmake_force
@@ -144,7 +157,7 @@ CMakeFiles/my_leveldb.dir/util/options.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/comparator.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../util/comparator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/my_leveldb.dir/util/comparator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/my_leveldb.dir/util/comparator.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/comparator.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/comparator.cc
 
 CMakeFiles/my_leveldb.dir/util/comparator.cc.i: cmake_force
@@ -157,7 +170,7 @@ CMakeFiles/my_leveldb.dir/util/comparator.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/status.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/status.cc.o: ../util/status.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/my_leveldb.dir/util/status.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/my_leveldb.dir/util/status.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/status.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/status.cc
 
 CMakeFiles/my_leveldb.dir/util/status.cc.i: cmake_force
@@ -170,7 +183,7 @@ CMakeFiles/my_leveldb.dir/util/status.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/logging.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/logging.cc.o: ../util/logging.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/my_leveldb.dir/util/logging.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/my_leveldb.dir/util/logging.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/logging.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/logging.cc
 
 CMakeFiles/my_leveldb.dir/util/logging.cc.i: cmake_force
@@ -183,7 +196,7 @@ CMakeFiles/my_leveldb.dir/util/logging.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/env.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/env.cc.o: ../util/env.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/my_leveldb.dir/util/env.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/my_leveldb.dir/util/env.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/env.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/env.cc
 
 CMakeFiles/my_leveldb.dir/util/env.cc.i: cmake_force
@@ -196,7 +209,7 @@ CMakeFiles/my_leveldb.dir/util/env.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/env_posix.cc.o: ../util/env_posix.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/my_leveldb.dir/util/env_posix.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/my_leveldb.dir/util/env_posix.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/env_posix.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/env_posix.cc
 
 CMakeFiles/my_leveldb.dir/util/env_posix.cc.i: cmake_force
@@ -209,7 +222,7 @@ CMakeFiles/my_leveldb.dir/util/env_posix.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/util/crc32c.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/util/crc32c.cc.o: ../util/crc32c.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/my_leveldb.dir/util/crc32c.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/my_leveldb.dir/util/crc32c.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/util/crc32c.cc.o -c /Users/kuiper/MyCodes/my_leveldb/util/crc32c.cc
 
 CMakeFiles/my_leveldb.dir/util/crc32c.cc.i: cmake_force
@@ -220,9 +233,22 @@ CMakeFiles/my_leveldb.dir/util/crc32c.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_leveldb.dir/util/crc32c.cc.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/my_leveldb/util/crc32c.cc -o CMakeFiles/my_leveldb.dir/util/crc32c.cc.s
 
+CMakeFiles/my_leveldb.dir/table/iterator.cc.o: CMakeFiles/my_leveldb.dir/flags.make
+CMakeFiles/my_leveldb.dir/table/iterator.cc.o: ../table/iterator.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/my_leveldb.dir/table/iterator.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/table/iterator.cc.o -c /Users/kuiper/MyCodes/my_leveldb/table/iterator.cc
+
+CMakeFiles/my_leveldb.dir/table/iterator.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_leveldb.dir/table/iterator.cc.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/my_leveldb/table/iterator.cc > CMakeFiles/my_leveldb.dir/table/iterator.cc.i
+
+CMakeFiles/my_leveldb.dir/table/iterator.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_leveldb.dir/table/iterator.cc.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/my_leveldb/table/iterator.cc -o CMakeFiles/my_leveldb.dir/table/iterator.cc.s
+
 CMakeFiles/my_leveldb.dir/db/filename.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/db/filename.cc.o: ../db/filename.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/my_leveldb.dir/db/filename.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/my_leveldb.dir/db/filename.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/db/filename.cc.o -c /Users/kuiper/MyCodes/my_leveldb/db/filename.cc
 
 CMakeFiles/my_leveldb.dir/db/filename.cc.i: cmake_force
@@ -235,7 +261,7 @@ CMakeFiles/my_leveldb.dir/db/filename.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/db/log_writer.cc.o: ../db/log_writer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/my_leveldb.dir/db/log_writer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/my_leveldb.dir/db/log_writer.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/db/log_writer.cc.o -c /Users/kuiper/MyCodes/my_leveldb/db/log_writer.cc
 
 CMakeFiles/my_leveldb.dir/db/log_writer.cc.i: cmake_force
@@ -248,7 +274,7 @@ CMakeFiles/my_leveldb.dir/db/log_writer.cc.s: cmake_force
 
 CMakeFiles/my_leveldb.dir/db/log_reader.cc.o: CMakeFiles/my_leveldb.dir/flags.make
 CMakeFiles/my_leveldb.dir/db/log_reader.cc.o: ../db/log_reader.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/my_leveldb.dir/db/log_reader.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/my_leveldb.dir/db/log_reader.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/db/log_reader.cc.o -c /Users/kuiper/MyCodes/my_leveldb/db/log_reader.cc
 
 CMakeFiles/my_leveldb.dir/db/log_reader.cc.i: cmake_force
@@ -259,10 +285,37 @@ CMakeFiles/my_leveldb.dir/db/log_reader.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_leveldb.dir/db/log_reader.cc.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/my_leveldb/db/log_reader.cc -o CMakeFiles/my_leveldb.dir/db/log_reader.cc.s
 
+CMakeFiles/my_leveldb.dir/db/memtable.cc.o: CMakeFiles/my_leveldb.dir/flags.make
+CMakeFiles/my_leveldb.dir/db/memtable.cc.o: ../db/memtable.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/my_leveldb.dir/db/memtable.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/db/memtable.cc.o -c /Users/kuiper/MyCodes/my_leveldb/db/memtable.cc
+
+CMakeFiles/my_leveldb.dir/db/memtable.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_leveldb.dir/db/memtable.cc.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/my_leveldb/db/memtable.cc > CMakeFiles/my_leveldb.dir/db/memtable.cc.i
+
+CMakeFiles/my_leveldb.dir/db/memtable.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_leveldb.dir/db/memtable.cc.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/my_leveldb/db/memtable.cc -o CMakeFiles/my_leveldb.dir/db/memtable.cc.s
+
+CMakeFiles/my_leveldb.dir/db/dbformat.cc.o: CMakeFiles/my_leveldb.dir/flags.make
+CMakeFiles/my_leveldb.dir/db/dbformat.cc.o: ../db/dbformat.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/my_leveldb.dir/db/dbformat.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_leveldb.dir/db/dbformat.cc.o -c /Users/kuiper/MyCodes/my_leveldb/db/dbformat.cc
+
+CMakeFiles/my_leveldb.dir/db/dbformat.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_leveldb.dir/db/dbformat.cc.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/my_leveldb/db/dbformat.cc > CMakeFiles/my_leveldb.dir/db/dbformat.cc.i
+
+CMakeFiles/my_leveldb.dir/db/dbformat.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_leveldb.dir/db/dbformat.cc.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/my_leveldb/db/dbformat.cc -o CMakeFiles/my_leveldb.dir/db/dbformat.cc.s
+
 # Object files for target my_leveldb
 my_leveldb_OBJECTS = \
 "CMakeFiles/my_leveldb.dir/main.cpp.o" \
 "CMakeFiles/my_leveldb.dir/util/cache.cc.o" \
+"CMakeFiles/my_leveldb.dir/util/coding.cc.o" \
 "CMakeFiles/my_leveldb.dir/util/arena.cc.o" \
 "CMakeFiles/my_leveldb.dir/util/histogram.cc.o" \
 "CMakeFiles/my_leveldb.dir/util/options.cc.o" \
@@ -272,15 +325,19 @@ my_leveldb_OBJECTS = \
 "CMakeFiles/my_leveldb.dir/util/env.cc.o" \
 "CMakeFiles/my_leveldb.dir/util/env_posix.cc.o" \
 "CMakeFiles/my_leveldb.dir/util/crc32c.cc.o" \
+"CMakeFiles/my_leveldb.dir/table/iterator.cc.o" \
 "CMakeFiles/my_leveldb.dir/db/filename.cc.o" \
 "CMakeFiles/my_leveldb.dir/db/log_writer.cc.o" \
-"CMakeFiles/my_leveldb.dir/db/log_reader.cc.o"
+"CMakeFiles/my_leveldb.dir/db/log_reader.cc.o" \
+"CMakeFiles/my_leveldb.dir/db/memtable.cc.o" \
+"CMakeFiles/my_leveldb.dir/db/dbformat.cc.o"
 
 # External object files for target my_leveldb
 my_leveldb_EXTERNAL_OBJECTS =
 
 my_leveldb: CMakeFiles/my_leveldb.dir/main.cpp.o
 my_leveldb: CMakeFiles/my_leveldb.dir/util/cache.cc.o
+my_leveldb: CMakeFiles/my_leveldb.dir/util/coding.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/util/arena.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/util/histogram.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/util/options.cc.o
@@ -290,12 +347,15 @@ my_leveldb: CMakeFiles/my_leveldb.dir/util/logging.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/util/env.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/util/env_posix.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/util/crc32c.cc.o
+my_leveldb: CMakeFiles/my_leveldb.dir/table/iterator.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/db/filename.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/db/log_writer.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/db/log_reader.cc.o
+my_leveldb: CMakeFiles/my_leveldb.dir/db/memtable.cc.o
+my_leveldb: CMakeFiles/my_leveldb.dir/db/dbformat.cc.o
 my_leveldb: CMakeFiles/my_leveldb.dir/build.make
 my_leveldb: CMakeFiles/my_leveldb.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable my_leveldb"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable my_leveldb"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_leveldb.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

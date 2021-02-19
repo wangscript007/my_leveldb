@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/dbformat.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/dbformat.h">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/filename.cc">
 			<Option target="my_leveldb"/>
 		</Unit>
@@ -102,7 +108,16 @@
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/log_writer.h">
 			<Option target="my_leveldb"/>
 		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/memtable.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/memtable.h">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/main.cpp">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/table/iterator.cc">
 			<Option target="my_leveldb"/>
 		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/arena.cc">
@@ -112,6 +127,12 @@
 			<Option target="my_leveldb"/>
 		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/cache.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/coding.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/coding.h">
 			<Option target="my_leveldb"/>
 		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/util/comparator.cc">

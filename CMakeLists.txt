@@ -12,6 +12,7 @@ INCLUDE_DIRECTORIES(./)
 add_executable(my_leveldb
         main.cpp
         util/cache.cc
+        util/coding.cc
         util/arena.cc
         util/histogram.cc
         util/options.cc
@@ -22,10 +23,13 @@ add_executable(my_leveldb
         util/env_posix.cc
         util/crc32c.cc
 
+        table/iterator.cc
+
         db/filename.cc
         db/log_writer.cc
         db/log_reader.cc
-        #db/memtable.cc
+        db/memtable.cc
+        db/dbformat.cc
         #db/write_batch.cc
         #db/dumpfile.cc
         )

@@ -26,7 +26,7 @@ namespace leveldb {
         dst->append(buf, ptr - buf);
     }
 
-    void PutVarint64(std::string *dst, uint32_t value) {
+    void PutVarint64(std::string *dst, uint64_t value) {
         char buf[10];
         char *ptr = EncodeVarint64(buf, value);
         dst->append(buf, ptr - buf);

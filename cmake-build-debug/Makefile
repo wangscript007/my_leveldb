@@ -143,6 +143,33 @@ my_leveldb/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/build
 .PHONY : my_leveldb/fast
 
+db/dbformat.o: db/dbformat.cc.o
+
+.PHONY : db/dbformat.o
+
+# target to build an object file
+db/dbformat.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/dbformat.cc.o
+.PHONY : db/dbformat.cc.o
+
+db/dbformat.i: db/dbformat.cc.i
+
+.PHONY : db/dbformat.i
+
+# target to preprocess a source file
+db/dbformat.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/dbformat.cc.i
+.PHONY : db/dbformat.cc.i
+
+db/dbformat.s: db/dbformat.cc.s
+
+.PHONY : db/dbformat.s
+
+# target to generate assembly for a file
+db/dbformat.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/dbformat.cc.s
+.PHONY : db/dbformat.cc.s
+
 db/filename.o: db/filename.cc.o
 
 .PHONY : db/filename.o
@@ -224,6 +251,33 @@ db/log_writer.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/log_writer.cc.s
 .PHONY : db/log_writer.cc.s
 
+db/memtable.o: db/memtable.cc.o
+
+.PHONY : db/memtable.o
+
+# target to build an object file
+db/memtable.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/memtable.cc.o
+.PHONY : db/memtable.cc.o
+
+db/memtable.i: db/memtable.cc.i
+
+.PHONY : db/memtable.i
+
+# target to preprocess a source file
+db/memtable.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/memtable.cc.i
+.PHONY : db/memtable.cc.i
+
+db/memtable.s: db/memtable.cc.s
+
+.PHONY : db/memtable.s
+
+# target to generate assembly for a file
+db/memtable.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/memtable.cc.s
+.PHONY : db/memtable.cc.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -250,6 +304,33 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+table/iterator.o: table/iterator.cc.o
+
+.PHONY : table/iterator.o
+
+# target to build an object file
+table/iterator.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/table/iterator.cc.o
+.PHONY : table/iterator.cc.o
+
+table/iterator.i: table/iterator.cc.i
+
+.PHONY : table/iterator.i
+
+# target to preprocess a source file
+table/iterator.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/table/iterator.cc.i
+.PHONY : table/iterator.cc.i
+
+table/iterator.s: table/iterator.cc.s
+
+.PHONY : table/iterator.s
+
+# target to generate assembly for a file
+table/iterator.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/table/iterator.cc.s
+.PHONY : table/iterator.cc.s
 
 util/arena.o: util/arena.cc.o
 
@@ -304,6 +385,33 @@ util/cache.s: util/cache.cc.s
 util/cache.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/cache.cc.s
 .PHONY : util/cache.cc.s
+
+util/coding.o: util/coding.cc.o
+
+.PHONY : util/coding.o
+
+# target to build an object file
+util/coding.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/coding.cc.o
+.PHONY : util/coding.cc.o
+
+util/coding.i: util/coding.cc.i
+
+.PHONY : util/coding.i
+
+# target to preprocess a source file
+util/coding.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/coding.cc.i
+.PHONY : util/coding.cc.i
+
+util/coding.s: util/coding.cc.s
+
+.PHONY : util/coding.s
+
+# target to generate assembly for a file
+util/coding.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/util/coding.cc.s
+.PHONY : util/coding.cc.s
 
 util/comparator.o: util/comparator.cc.o
 
@@ -530,6 +638,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... my_leveldb"
+	@echo "... db/dbformat.o"
+	@echo "... db/dbformat.i"
+	@echo "... db/dbformat.s"
 	@echo "... db/filename.o"
 	@echo "... db/filename.i"
 	@echo "... db/filename.s"
@@ -539,15 +650,24 @@ help:
 	@echo "... db/log_writer.o"
 	@echo "... db/log_writer.i"
 	@echo "... db/log_writer.s"
+	@echo "... db/memtable.o"
+	@echo "... db/memtable.i"
+	@echo "... db/memtable.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... table/iterator.o"
+	@echo "... table/iterator.i"
+	@echo "... table/iterator.s"
 	@echo "... util/arena.o"
 	@echo "... util/arena.i"
 	@echo "... util/arena.s"
 	@echo "... util/cache.o"
 	@echo "... util/cache.i"
 	@echo "... util/cache.s"
+	@echo "... util/coding.o"
+	@echo "... util/coding.i"
+	@echo "... util/coding.s"
 	@echo "... util/comparator.o"
 	@echo "... util/comparator.i"
 	@echo "... util/comparator.s"
