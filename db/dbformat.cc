@@ -33,9 +33,12 @@ namespace leveldb {
         // user_key按照用户提供的升序
         // seqNbr: 降序  NOTE !!!!
         // type  : 降序  NOTE !!!!
+        // 不允许user_key+seqNbr+type完全相同.
+        // 如果user_key和seqNbr相同, type不同, 则kTypeValue最高优先级
+        // 即先add_kTypeValue，再add_kTypeDeletion 则删除无效, 但是逻辑上不可能出现这种场景.
         if (r == 0) {
-            const int64_t anum = DecodeFixed64(a.data() + a.size() - 8) >> 8ULL;
-            const int64_t bnum = DecodeFixed64(b.data() + b.size() - 8) >> 8ULL;
+            const int64_t anum = DecodeFixed64(a.data() + a.size() - 8);
+            const int64_t bnum = DecodeFixed64(b.data() + b.size() - 8);
             if (anum > bnum) {
                 r = -1;
             } else if (anum < bnum) {

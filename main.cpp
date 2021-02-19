@@ -19,6 +19,11 @@
 #include "db/log_reader.h"
 #include "db/log_writer.h"
 
+leveldb::SequenceNumber seqGen() {
+    static std::atomic_uint64_t seq = 0;
+    return seq.fetch_add(1);
+}
+
 extern void testArena();
 
 extern void testHistogram();
@@ -169,12 +174,21 @@ void testMemTable() {
 
     leveldb::InternalKeyComparator cmp(leveldb::BytewiseComparator());
     auto memtable = new leveldb::MemTable(cmp);
-    memtable->Add(1, leveldb::kTypeValue, "aaaa", "bbbbxxxxxxxxxxxxxxxguoxiang");
-    memtable->Add(99, leveldb::kTypeValue, "cccc", "dddd");
+    memtable->Add(seqGen(), leveldb::kTypeValue, "aaaa", "bbbbxxxxxxxxxxxxxxxguoxiang");
+    memtable->Add(seqGen(), leveldb::kTypeValue, "aaaa", "value2");
+    memtable->Add(seqGen(), leveldb::kTypeValue, "aaaa", "value3");
+    memtable->Add(seqGen(), leveldb::kTypeValue, "aaaa", "value_final");
+    memtable->Add(seqGen(), leveldb::kTypeDeletion, "aaaa", "aaaa");
+    memtable->Add(seqGen(), leveldb::kTypeValue, "aaaa", "hehedadadadadadada");
+    // memtable->Add(8, leveldb::kTypeValue, "aaaa", "hehedadadadadadada");
+
+    memtable->Add(seqGen(), leveldb::kTypeValue, "cccc", "dddd");
+
+    std::cout << "MemoryUsage:" << memtable->ApproximateMemoryUsage() << std::endl;
 
     std::string value;
     leveldb::Status s;
-    bool bRet = memtable->Get(leveldb::LookupKey("aaaa", 0), &value, &s);
+    bool bRet = memtable->Get(leveldb::LookupKey("aaaa", 9999), &value, &s);
     std::cout << "bRet:" << std::boolalpha << bRet << std::endl;
 
     if (bRet) {

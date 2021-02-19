@@ -48,10 +48,10 @@ namespace leveldb {
 
     struct ParsedInternalKey {
         Slice user_key;
-        SequenceNumber sequence;
+        SequenceNumber sequence{};
         ValueType type;
 
-        ParsedInternalKey() {}
+        ParsedInternalKey() = default;
 
         ParsedInternalKey(const Slice &u, const SequenceNumber &seq, ValueType t)
                 : user_key(u), sequence(seq), type(t) {}
