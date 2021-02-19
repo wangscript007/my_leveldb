@@ -174,7 +174,39 @@ namespace leveldb {
     // Helper-Class 用于DBImpl::Get()
     class LookupKey {
     public:
+        LookupKey(const Slice &user_key, SequenceNumber sequence);
+
+        LookupKey(const LookupKey &) = delete;
+
+        LookupKey &operator=(const LookupKey &) = delete;
+
+        // varint of internal_key + internal_key
+        Slice memtable_key() const {
+            return Slice(start_, end_ - start_);
+        }
+
+        // user_key + seq + type
+        Slice internal_key() const {
+            return Slice(kstart_, end_ - kstart_);
+        }
+
+        // user_key
+        Slice user_key() const {
+            return Slice(kstart_, end_ - kstart_ - 8);
+        }
+
+        ~LookupKey() {
+            // 说明space_不够用,lookupKey额外申请了, 则需要释放.
+            if (start_ != space_) {
+                delete[] start_;
+            }
+        }
+
     private:
+        const char *start_;     // 整个
+        const char *kstart_;    // user_key起始位置
+        const char *end_;
+        char space_[200];   // 暂定大多数情况下都小于200字节
     };
 
 }

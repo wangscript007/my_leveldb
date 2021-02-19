@@ -129,7 +129,44 @@ namespace leveldb {
         table_.Insert(buf);
     }
 
-    bool MemTable::Get(const LookupKey &key, std::string *value, Status *s) {
+    bool MemTable::Get(const LookupKey &lookup_key, std::string *value, Status *s) {
+        Slice memtable_key = lookup_key.memtable_key();
+        Table::Iterator iter(&table_);
+        iter.Seek(memtable_key.data()); // seek到>= memtable_key的节点.
+        if (!iter.Valid()) {
+            return false;
+        }
+
+        // entry format:
+        // keyLength:  varint32
+        // userKey  :  char[keyLength - 8]
+        // valueLen :  varint32
+        // value    :   char[valueLen]
+        const char *entry = iter.key();
+        uint32_t key_length;
+
+        // 读取keyLength
+        const char *key_ptr = GetVarint32Ptr(entry, entry + 5, &key_length);
+        Slice userKey = Slice(key_ptr, key_length - 8);
+        if (comparator_.comparator.user_comparator()->Compare(userKey, lookup_key.user_key()) == 0) {
+            const uint64_t seq_and_type = DecodeFixed64(key_ptr + key_length - 8);
+            switch (static_cast<ValueType>(seq_and_type & 0xff)) {
+                case kTypeValue: {
+                    Slice val = GetLengthPrefixedSlice(key_ptr + key_length);
+                    value->assign(val.data(), val.size());
+                    *s = Status::OK(); // FIXME
+                    return true;
+                }
+                case kTypeDeletion: {
+                    *s = Status::NotFound(Slice());
+                    return true;
+                }
+                default:
+                    // Unreachable.
+                    assert(false);
+            }
+        }
+
         return false;
     }
 }

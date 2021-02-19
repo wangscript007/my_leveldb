@@ -168,12 +168,12 @@ void testEnv() {
 }
 
 void testSkipList() {
-    leveldb::Arena arena;
-    leveldb::SkipList<int, std::less<>> list(std::less<>(), &arena);
-    for (int i = 0; i < 1000; ++i) {
-        list.Insert(i);
-    }
-    std::cout << "done" << std::endl;
+//    leveldb::Arena arena;
+//    leveldb::SkipList<int, std::less<>> list(std::less<>(), &arena);
+//    for (int i = 0; i < 1000; ++i) {
+//        list.Insert(i);
+//    }
+//    std::cout << "done" << std::endl;
 }
 
 void testLogWriter() {
@@ -193,4 +193,17 @@ void testMemTable()
     auto memtable = new leveldb::MemTable(cmp);
     memtable->Add(1, leveldb::kTypeValue, "aaaa", "bbbb");
     memtable->Add(2, leveldb::kTypeValue, "cccc", "dddd");
+
+    std::string value;
+    leveldb::Status s;
+    bool bRet = memtable->Get(leveldb::LookupKey("aaaa", 1), &value, &s);
+    std::cout << "bRet:" << std::boolalpha << bRet << std::endl;
+
+    if (bRet) {
+        if (s.IsOK()) {
+            std::cout << "value is: " << value << std::endl;
+        } else if (s.IsNotFound()) {
+            std::cout << "value found  but mark delete tag." << std::endl;
+        }
+    }
 }

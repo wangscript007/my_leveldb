@@ -41,4 +41,30 @@ namespace leveldb {
 
     // fixme FilterPolicy
 
+
+    LookupKey::LookupKey(const Slice &user_key, SequenceNumber sequence) {
+        size_t usize = user_key.size();
+        size_t needed = usize + 13;
+
+        char *dst;
+        if (needed < sizeof(space_)) {
+            dst = space_;
+        } else {
+            dst = new char[needed];
+        }
+
+        start_ = dst;
+
+        // 先写入key的varint长度: user_key + 8byte(seq+type)
+        dst = EncodeVarint32(dst, usize + 8);
+        kstart_ = dst;
+        // 写入user_key
+        std::memcpy(dst, user_key.data(), usize);
+        dst += usize;
+        // 写入8byte的seq和type
+        EncodeFixed64(dst, PackSequenceAndType(sequence, kValueTypeForSeek));
+        dst += 8;
+        end_ = dst;
+    }
+
 }
