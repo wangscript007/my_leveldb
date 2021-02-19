@@ -165,7 +165,7 @@ namespace leveldb {
 
     template<typename Key, class Comparator>
     bool SkipList<Key, Comparator>::Contains(const Key &key) const {
-        Node* x = FindGreaterOrEqual(key, nullptr);
+        Node *x = FindGreaterOrEqual(key, nullptr);
         if (x != nullptr && Equal(key, x->key)) {
             return true;
         } else {
@@ -180,11 +180,11 @@ namespace leveldb {
 
     template<typename Key, typename Compare>
     typename SkipList<Key, Compare>::Node *SkipList<Key, Compare>::FindLessThan(const Key &key) const {
-        Node* x = head_;
+        Node *x = head_;
         int level = GetMaxHeight() - 1;
-        for(;;) {
+        for (;;) {
             assert(x == head_ || comparator_(x->key, key) < 0);
-            Node* next = x->Next(level);
+            Node *next = x->Next(level);
             if (next == nullptr || comparator_(next->key, key) <= 0) {
                 if (level == 0) {
                     return x;
@@ -238,30 +238,29 @@ namespace leveldb {
     }
 
 
-
     template<typename Key, typename Compare>
-    inline SkipList<Key,Compare>::Iterator::Iterator(const SkipList *list) {
+    inline SkipList<Key, Compare>::Iterator::Iterator(const SkipList *list) {
         list_ = list;
         node_ = nullptr;
     }
 
     template<typename Key, typename Compare>
-    inline bool SkipList<Key,Compare>::Iterator::Valid() const {
+    inline bool SkipList<Key, Compare>::Iterator::Valid() const {
         return node_ != nullptr;
     }
 
     template<typename Key, typename Compare>
-    inline const Key& SkipList<Key,Compare>::Iterator::key() const {
+    inline const Key &SkipList<Key, Compare>::Iterator::key() const {
         return node_->key;
     }
 
     template<typename Key, typename Compare>
-    inline void SkipList<Key,Compare>::Iterator::Next() {
+    inline void SkipList<Key, Compare>::Iterator::Next() {
         assert(Valid());
         node_ = node_->Next(0);
     }
 
-    template <typename Key, class Comparator>
+    template<typename Key, class Comparator>
     inline void SkipList<Key, Comparator>::Iterator::Prev() {
         // Instead of using explicit "prev" links, we just search for the
         // last node that falls before key.
@@ -272,25 +271,24 @@ namespace leveldb {
         }
     }
 
-    template <typename Key, class Comparator>
-    inline void SkipList<Key, Comparator>::Iterator::Seek(const Key& target) {
+    template<typename Key, class Comparator>
+    inline void SkipList<Key, Comparator>::Iterator::Seek(const Key &target) {
         node_ = list_->FindGreaterOrEqual(target, nullptr);
+        int debug_var = 0;
     }
 
-    template <typename Key, class Comparator>
+    template<typename Key, class Comparator>
     inline void SkipList<Key, Comparator>::Iterator::SeekToFirst() {
         node_ = list_->head_->Next(0);
     }
 
-    template <typename Key, class Comparator>
+    template<typename Key, class Comparator>
     inline void SkipList<Key, Comparator>::Iterator::SeekToLast() {
         node_ = list_->FindLast();
         if (node_ == list_->head_) {
             node_ = nullptr;
         }
     }
-
-
 
 
 }

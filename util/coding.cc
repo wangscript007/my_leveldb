@@ -84,7 +84,18 @@ namespace leveldb {
     }
 
     const char *GetVarint32PtrFallback(const char *p, const char *limit, uint32_t *value) {
-        // FIXME
+        uint32_t result = 0;
+        for (uint32_t shift = 0; shift <= 28 && p < limit; shift += 7) {
+            uint32_t byte = *(reinterpret_cast<const uint8_t *>(p));
+            p++;
+            if (byte & 128) {   // byte & 0x1000 0000
+                result |= ((byte & 127) << shift);
+            } else {
+                result |= ((byte & 127) << shift);
+                *value = result;
+                return reinterpret_cast<const char *>(p);
+            }
+        }
         return nullptr;
     }
 
@@ -100,8 +111,19 @@ namespace leveldb {
     }
 
     const char *GetVarint64Ptr(const char *p, const char *limit, uint64_t *value) {
-
-        // FIXME
+        uint64_t result = 0;
+        for (uint32_t shift = 0; shift <= 63 && p < limit; shift += 7) {
+            uint64_t byte = *(reinterpret_cast<const uint8_t *>(p));
+            p++;
+            if (byte & 128) {
+                // More bytes are present
+                result |= ((byte & 127) << shift);
+            } else {
+                result |= (byte << shift);
+                *value = result;
+                return reinterpret_cast<const char *>(p);
+            }
+        }
         return nullptr;
     }
 

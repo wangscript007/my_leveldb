@@ -36,27 +36,6 @@ extern void testLogWriter();
 extern void testMemTable();
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-
-    leveldb::Slice s = "aaaaaa";
-    std::cout << s.size() << std::endl;
-
-    leveldb::Slice sb = "aaaaaaaaaa";
-
-    std::cout << std::boolalpha << s.starts_with(sb) << std::endl;
-
-    //leveldb::port::Mutex mutex;
-    // mutex.Lock();
-    // leveldb::port::CondVar condVar(&mutex);
-    // condVar.Wait();
-
-    leveldb::Options options;
-
-    leveldb::ReadOptions readOptions;
-    readOptions.verify_checksums = true;
-
-    leveldb::WriteOptions writeOptions;
-    writeOptions.sync = true;
 
     testMemTable();
     testArena();
@@ -144,11 +123,11 @@ void testEnv() {
     }
 
     int a = 3;
-    pEnv->Schedule([](void *a) {
-        for (int i = 0; i < 100; ++i) {
-            std::cout << i * (*(int *) a) << std::endl;
-        }
-    }, &a);
+//    pEnv->Schedule([](void *a) {
+//        for (int i = 0; i < 100; ++i) {
+//            std::cout << i * (*(int *) a) << std::endl;
+//        }
+//    }, &a);
 
     // pEnv->SleepForMicroseconds(10000000L);
     leveldb::WritableFile *writableFile = nullptr;
@@ -186,17 +165,16 @@ void testLogWriter() {
     }
 }
 
-void testMemTable()
-{
-    leveldb::InternalKeyComparator cmp(nullptr);
-    // leveldb::MemTable table(cmp);
+void testMemTable() {
+
+    leveldb::InternalKeyComparator cmp(leveldb::BytewiseComparator());
     auto memtable = new leveldb::MemTable(cmp);
-    memtable->Add(1, leveldb::kTypeValue, "aaaa", "bbbb");
-    memtable->Add(2, leveldb::kTypeValue, "cccc", "dddd");
+    memtable->Add(1, leveldb::kTypeValue, "aaaa", "bbbbxxxxxxxxxxxxxxxguoxiang");
+    memtable->Add(99, leveldb::kTypeValue, "cccc", "dddd");
 
     std::string value;
     leveldb::Status s;
-    bool bRet = memtable->Get(leveldb::LookupKey("aaaa", 1), &value, &s);
+    bool bRet = memtable->Get(leveldb::LookupKey("aaaa", 0), &value, &s);
     std::cout << "bRet:" << std::boolalpha << bRet << std::endl;
 
     if (bRet) {

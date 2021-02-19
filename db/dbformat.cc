@@ -27,8 +27,22 @@ namespace leveldb {
     }
 
     int InternalKeyComparator::Compare(const Slice &a, const Slice &b) const {
-        // fixme
-        return 1;
+        int r = user_comparator_->Compare(ExtractUserKey(a), ExtractUserKey(b));
+        // 如果key相同 则比较seq号  seq号低8位都是type
+        // 排序规则:
+        // user_key按照用户提供的升序
+        // seqNbr: 降序  NOTE !!!!
+        // type  : 降序  NOTE !!!!
+        if (r == 0) {
+            const int64_t anum = DecodeFixed64(a.data() + a.size() - 8) >> 8ULL;
+            const int64_t bnum = DecodeFixed64(b.data() + b.size() - 8) >> 8ULL;
+            if (anum > bnum) {
+                r = -1;
+            } else if (anum < bnum) {
+                r = +1;
+            }
+        }
+        return r;
     }
 
     void InternalKeyComparator::FindShortestSeparator(std::string *start, const Slice &limit) const {
@@ -44,7 +58,7 @@ namespace leveldb {
 
     LookupKey::LookupKey(const Slice &user_key, SequenceNumber sequence) {
         size_t usize = user_key.size();
-        size_t needed = usize + 13;
+        size_t needed = usize + 13; // 13 = 最大的varint占5个字节 + 8个字节的seq<<56 | type
 
         char *dst;
         if (needed < sizeof(space_)) {

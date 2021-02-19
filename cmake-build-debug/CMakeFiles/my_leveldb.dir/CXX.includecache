@@ -112,8 +112,42 @@ port/port_likely.h
 
 ../port/port_likely.h
 
+../port/port_stdcxx.h
+crc32c/crc32c.h
+-
+snappy.h
+-
+mutex
+-
+condition_variable
+-
+
+../util/coding.h
+cstdint
+-
+cstring
+-
+string
+-
+variant
+-
+leveldb/slice.h
+../util/leveldb/slice.h
+port/port.h
+../util/port/port.h
+
+../util/logging.h
+string
+-
+
 ../util/random.h
 cstdint
+-
+
+/Users/kuiper/MyCodes/my_leveldb/db/dbformat.cc
+db/dbformat.h
+/Users/kuiper/MyCodes/my_leveldb/db/db/dbformat.h
+sstream
 -
 
 /Users/kuiper/MyCodes/my_leveldb/db/log_reader.h

@@ -121,7 +121,10 @@ CMakeFiles/my_leveldb.dir/util/coding.cc.o: ../util/coding.h
 CMakeFiles/my_leveldb.dir/util/coding.cc.o: ../util/coding.cc
 
 CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../include/leveldb/comparator.h
+CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../include/leveldb/cxx.h
 CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../include/leveldb/export.h
+CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../include/leveldb/slice.h
+CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../util/no_destructor.h
 CMakeFiles/my_leveldb.dir/util/comparator.cc.o: ../util/comparator.cc
 
 CMakeFiles/my_leveldb.dir/util/crc32c.cc.o: ../include/leveldb/cxx.h

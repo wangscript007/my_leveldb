@@ -88,7 +88,7 @@ namespace leveldb {
             if (size_ < b.size_) {
                 r = -1;
             } else if (size_ > b.size_) {
-                r = 1;
+                r = +1;
             }
         }
         return r;
