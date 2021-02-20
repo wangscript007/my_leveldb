@@ -59,7 +59,10 @@ namespace leveldb {
         virtual void CompactRange(const Slice* begin, const Slice* end) = 0;
     };
 
+    // 销毁整个数据库 db_impl.cc
     LEVELDB_EXPORT Status DestroyDB(const std::string& name, const Options& options);
+
+    // 重新排序整个数据库
     LEVELDB_EXPORT Status RepairDB(const std::string &name, const Options & options);
 
 }

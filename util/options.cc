@@ -8,7 +8,7 @@
 
 namespace leveldb {
     Options::Options()
-            : comparator(BytewiseComparator()), env(nullptr) {
+            : comparator(BytewiseComparator()), env(Env::Default()) {
         // fixme
     }
 }

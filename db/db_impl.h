@@ -22,13 +22,9 @@
 namespace leveldb {
 
     class MemTable;
-
     class TableCache;
-
     class Version;
-
     class VersionEdit;
-
     class VersionSet;
 
     class DBImpl : public DB, public Copyable<false> {
@@ -187,6 +183,13 @@ namespace leveldb {
         Status bg_error_ GUARDED_BY(mutex_);
         CompactionStats stats_[config::kNumLevels] GUARDED_BY(mutex_);
     };
+
+    // Sanitize db options.  The caller should delete result.info_log if
+    // it is not equal to src.info_log.
+    // Options SanitizeOptions(const std::string& db,
+    //                        const InternalKeyComparator* icmp,
+    //                        const InternalFilterPolicy* ipolicy,
+    //                        const Options& src);
 }
 
 #endif //MY_LEVELDB_DB_IMPL_H
