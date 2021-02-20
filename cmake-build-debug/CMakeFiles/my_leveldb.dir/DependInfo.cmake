@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/kuiper/MyCodes/my_leveldb/db/log_reader.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/db/log_reader.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/db/log_writer.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/db/log_writer.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/db/memtable.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/db/memtable.cc.o"
+  "/Users/kuiper/MyCodes/my_leveldb/db/write_batch.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/db/write_batch.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/main.cpp" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/main.cpp.o"
   "/Users/kuiper/MyCodes/my_leveldb/table/iterator.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/table/iterator.cc.o"
   "/Users/kuiper/MyCodes/my_leveldb/util/arena.cc" "/Users/kuiper/MyCodes/my_leveldb/cmake-build-debug/CMakeFiles/my_leveldb.dir/util/arena.cc.o"

@@ -68,6 +68,28 @@ CMakeFiles/my_leveldb.dir/db/memtable.cc.o: ../util/logging.h
 CMakeFiles/my_leveldb.dir/db/memtable.cc.o: ../util/random.h
 CMakeFiles/my_leveldb.dir/db/memtable.cc.o: ../db/memtable.cc
 
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../db/dbformat.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../db/memtable.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../db/skiplist.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../db/write_batch_internal.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/comparator.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/cxx.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/db.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/export.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/options.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/slice.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/status.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../include/leveldb/write_batch.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../port/port.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../port/port_likely.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../port/port_stdcxx.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../util/arena.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../util/coding.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../util/logging.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../util/random.h
+CMakeFiles/my_leveldb.dir/db/write_batch.cc.o: ../db/write_batch.cc
+
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/dbformat.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../db/log_format.h
 CMakeFiles/my_leveldb.dir/main.cpp.o: ../include/leveldb/cache.h

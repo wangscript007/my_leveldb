@@ -30,6 +30,6 @@ add_executable(my_leveldb
         db/log_reader.cc
         db/memtable.cc
         db/dbformat.cc
-        #db/write_batch.cc
+        db/write_batch.cc
         #db/dumpfile.cc
         )

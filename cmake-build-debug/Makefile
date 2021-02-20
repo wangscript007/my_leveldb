@@ -278,6 +278,33 @@ db/memtable.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/memtable.cc.s
 .PHONY : db/memtable.cc.s
 
+db/write_batch.o: db/write_batch.cc.o
+
+.PHONY : db/write_batch.o
+
+# target to build an object file
+db/write_batch.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/write_batch.cc.o
+.PHONY : db/write_batch.cc.o
+
+db/write_batch.i: db/write_batch.cc.i
+
+.PHONY : db/write_batch.i
+
+# target to preprocess a source file
+db/write_batch.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/write_batch.cc.i
+.PHONY : db/write_batch.cc.i
+
+db/write_batch.s: db/write_batch.cc.s
+
+.PHONY : db/write_batch.s
+
+# target to generate assembly for a file
+db/write_batch.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_leveldb.dir/build.make CMakeFiles/my_leveldb.dir/db/write_batch.cc.s
+.PHONY : db/write_batch.cc.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -653,6 +680,9 @@ help:
 	@echo "... db/memtable.o"
 	@echo "... db/memtable.i"
 	@echo "... db/memtable.s"
+	@echo "... db/write_batch.o"
+	@echo "... db/write_batch.i"
+	@echo "... db/write_batch.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -114,6 +114,9 @@
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/memtable.h">
 			<Option target="my_leveldb"/>
 		</Unit>
+		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/db/write_batch.cc">
+			<Option target="my_leveldb"/>
+		</Unit>
 		<Unit filename="/Users/kuiper/MyCodes/my_leveldb/main.cpp">
 			<Option target="my_leveldb"/>
 		</Unit>
