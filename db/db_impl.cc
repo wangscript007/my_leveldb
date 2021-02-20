@@ -116,6 +116,64 @@ namespace leveldb {
         }
     }
 
+    bool DBImpl::GetProperty(const Slice &property, std::string *value) {
+        value->clear();
+        MutexLock l(&mutex_);
+        Slice in = property;
+        Slice prefix("leveldb.");
+        if (!in.starts_with(prefix)) return false;
+        in.remove_prefix(prefix.size());
+
+        if (in.starts_with("num-files-at-level")) {
+            in.remove_prefix(strlen("num-files-at-level"));
+            uint64_t level;
+            bool ok = ConsumeDecimalNumber(&in, &level) && in.empty();
+            if (!ok || level > config::kNumLevels) {
+                return false;
+            } else {
+
+            }
+        } else if (in == "stats") {
+
+        } else if (in == "sstables") {
+
+        } else if (in == "approximate-memory-usage") {
+            // options_.block_cache
+        }
+
+        return false;
+    }
+
+    Status DBImpl::Put(const WriteOptions &options, const Slice &key, const Slice &value) {
+        return DB::Put(options, key, value);
+    }
+
+    Status DBImpl::Delete(const WriteOptions &options, const Slice &key) {
+        return DB::Delete(options, key);
+    }
+
+    Status DBImpl::Write(const WriteOptions &options, WriteBatch *updates) {
+        Writer w(&mutex_);
+        w.batch = updates;
+        w.sync = options.sync;
+        w.done = false;
+
+        MutexLock l(&mutex_);
+        writers_.push_back(&w);
+
+        // 如果写入还没完成且前面还有排队的writers就等着
+        while (!w.done && &w != writers_.front()) {
+            w.cv.Wait();
+        }
+        if (w.done) {
+            return w.status;
+        }
+
+        //
+        Status status = MakeRoomForWrite(updates == nullptr);
+
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////
     // DB::Put
