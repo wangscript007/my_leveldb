@@ -42,7 +42,7 @@ namespace leveldb {
         DB(const DB&) = delete;
         DB& operator=(const DB&) = delete;
 
-        virtual ~DB();
+        virtual ~DB() = default;
 
         virtual Status Put(const WriteOptions& options, const Slice& key, const Slice &value) = 0;
         virtual Status Delete(const WriteOptions& options, const Slice& key) = 0;
@@ -57,12 +57,10 @@ namespace leveldb {
         virtual bool GetProperty(const Slice& property, std::string *value) = 0;
         virtual void GetApproximateSizes(const Range* range, int n, uint64_t* sizes) = 0;
         virtual void CompactRange(const Slice* begin, const Slice* end) = 0;
-
-        //
-        //
-        LEVELDB_EXPORT Status DestroyDB(const std::string& name, const Options& options);
-        LEVELDB_EXPORT Status RepairDB(const std::string &name, const Options & options);
     };
+
+    LEVELDB_EXPORT Status DestroyDB(const std::string& name, const Options& options);
+    LEVELDB_EXPORT Status RepairDB(const std::string &name, const Options & options);
 
 }
 
