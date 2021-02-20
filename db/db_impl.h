@@ -17,6 +17,7 @@
 #include "leveldb/env.h"
 #include "port/port.h"
 #include "util/copyable.h"
+#include "port/thread_annotations.h"
 
 namespace leveldb {
 
@@ -35,7 +36,6 @@ namespace leveldb {
         DBImpl(const Options &options, const std::string &dbname);
 
         ~DBImpl() override;
-
 
         // DB接口中定义的方法实现.
         Status Put(const WriteOptions &options, const Slice &key, const Slice &value) override;
@@ -59,15 +59,13 @@ namespace leveldb {
         void CompactRange(const Slice *begin, const Slice *end) override;
 
         // 额外用户做测试的方法
-
         void TEST_CompactRange(int level, const Slice *begin, const Slice *end);
-
         void TEST_CompactMemTable();
-
         Iterator *TEST_NewInternalIterator();
-
         int64_t TEST_MaxNextLevelOverlappingBytes();
 
+        //
+        //
         void RecordReadSample(Slice key);
 
     private:
@@ -85,7 +83,7 @@ namespace leveldb {
             InternalKey tmp_storage;
         };
 
-        //
+        // 每一层的compaction状态
         struct CompactionStats {
             CompactionStats()
                     : micros(0), bytes_read(0), bytes_written(0) {
@@ -102,6 +100,92 @@ namespace leveldb {
             int64_t bytes_written;
         };
 
+        Iterator *NewInternalIterator(const ReadOptions &read_options,
+                                      SequenceNumber *latest_snapshot, uint32_t *seed);
+
+        Status NewDB();
+
+        Status Recover(VersionEdit *edit, bool *save_manifest) EXCLUSIVE_LOCKS_REQUIRED(mutex_) ;
+
+        void MaybeIgnoreError(Status *s) const;
+
+        void RemoveObsoleteFiles() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        void CompactMemTable() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        Status RecoverLogFile(uint64_t log_number,
+                              bool last_log,
+                              bool *save_manifest,
+                              VersionEdit *edit,
+                              SequenceNumber *max_sequence) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        Status WriteLevel0Table(MemTable *mem, VersionEdit *edit, Version *base) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        Status MakeRoomForWrite(bool force) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        WriteBatch *BuildBatchGroup(Writer **last_writer) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        void RecordBackgroundError(const Status &s) ;
+
+        void MaybeScheduleCompaction() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        static void BGWork(void *db);
+
+        void BackgroundCall();
+
+        void BackgroundCompaction() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        void CleanupCompaction(CompactionState *compact) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        Status DoCompactionWork(CompactionState *compact) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        Status OpenCompactionOutputFile(CompactionState *compact);
+
+        Status FinishCompactionOutputFile(CompactionState *compact, Iterator *input);
+
+        Status InstallCompactionResults(CompactionState *compact) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+
+        const Comparator *user_comparator() const {
+            return internal_comparator_.user_comparator();
+        }
+
+    private:
+        Env *const env_;
+        const InternalKeyComparator internal_comparator_;
+        // const InternalFilterPolicy internal_filter_policy_;
+        const Options options_;
+        const bool owns_info_log_;
+        const bool owns_cache_;
+        const std::string dbname_;
+
+        TableCache *const table_cache_;
+        FileLock *db_lock_;
+
+        port::Mutex mutex_;
+        std::atomic<bool> shutting_down_;
+        port::CondVar background_work_finish_signal_ GUARDED_BY(mutex_);
+        MemTable *mem_;
+        MemTable *imm_ GUARDED_BY(mutex_);
+        std::atomic<bool> has_imm_;
+        WritableFile *logfile_;
+        uint64_t logfile_number_ GUARDED_BY(mutex_);
+        log::Writer *log_;
+        uint32_t seed_ GUARDED_BY(mutex_);
+
+        std::deque<Writer *> writers_ GUARDED_BY(mutex_);
+        WriteBatch *tmp_batch_ GUARDED_BY(mutex_);
+        SnapshotList snapshots_ GUARDED_BY(mutex_);
+
+        std::set<uint64_t> pending_outputs_ GUARDED_BY(mutex_);
+
+        // 后台的compaction是否真正运行?
+        bool background_compaction_scheduled_ GUARDED_BY(mutex_);
+
+        ManualCompaction *manual_compaction_ GUARDED_BY(mutex_);
+
+        VersionSet *const versions_ GUARDED_BY(mutex_);
+        Status bg_error_ GUARDED_BY(mutex_);
+        CompactionStats stats_[config::kNumLevels] GUARDED_BY(mutex_);
     };
 }
 
